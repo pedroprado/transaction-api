@@ -1,13 +1,15 @@
-package entity
+package model
 
-import "pedroprado.transaction.api/src/core/domain/values"
+import "time"
 
 type BalanceProvision struct {
 	ProvisionID          string
 	Value                float64
 	OriginAccountID      string
 	DestinationAccountID string
-	Type                 values.ProvisionType
-	Status               values.ProvisionStatus
+	Type                 string
+	Status               string
 	TransactionID        string
+	CreatedAt            time.Time
+	UpdatedAt            time.Time
 }

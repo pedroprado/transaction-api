@@ -21,6 +21,8 @@ const (
 
 func main() {
 
+	getDb()
+
 	ginServer := rest.NewServerHttpGin()
 	ginRouterGroup := ginServer.GetGinRouterGroup(relativePath)
 	transactionApi.RegisterTransactionApi(ginRouterGroup)
