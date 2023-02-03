@@ -2,6 +2,7 @@ package transactionRepo
 
 import (
 	"fmt"
+	"github.com/google/uuid"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
 	"pedroprado.transaction.api/src/core/_interfaces"
@@ -44,6 +45,7 @@ func (ref *transactionRepository) Get(transactionID string) (*entity.Transaction
 
 func (ref *transactionRepository) Create(transaction entity.Transaction) (*entity.Transaction, error) {
 	record := model.NewTransactionFromDomain(transaction)
+	record.TransactionID = uuid.NewString()
 	record.CreatedAt = time.Now()
 	record.UpdatedAt = time.Now()
 

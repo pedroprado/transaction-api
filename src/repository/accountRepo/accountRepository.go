@@ -1,6 +1,7 @@
 package accountRepo
 
 import (
+	"github.com/google/uuid"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
@@ -38,6 +39,7 @@ func (ref *accountRepository) Get(accountID string) (*entity.Account, error) {
 
 func (ref *accountRepository) Create(account entity.Account) (*entity.Account, error) {
 	record := model.NewAccountRecordFromDomain(account)
+	record.AccountID = uuid.NewString()
 	record.CreatedAt = time.Now()
 	record.UpdatedAt = time.Now()
 
