@@ -7,8 +7,6 @@ import (
 
 type TransactionStatusService interface {
 	FindByTransactionID(transactionID string) (*entity.TransactionStatus, error)
-	Create(transactionStatus entity.TransactionStatus) (*entity.TransactionStatus, error)
-	Update(transactionStatus entity.TransactionStatus) (*entity.TransactionStatus, error)
 }
 
 type TransactionStatusRepository interface {

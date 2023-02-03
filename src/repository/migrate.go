@@ -31,18 +31,13 @@ func prevMigrations(db *gorm.DB) error {
 
 func fixedMigrations(db *gorm.DB) error {
 	autoMigrateResult := db.AutoMigrate(
-		&model.Account{},
 		&model.Transaction{},
 		&model.TransactionStatus{},
+		&model.Account{},
 		&model.BalanceProvision{},
 	)
 	if autoMigrateResult != nil {
 		return errors.WithStack(autoMigrateResult)
-	}
-
-	migrateResult := db.Model(&model.Transaction{})
-	if migrateResult.Error != nil {
-		return errors.WithStack(migrateResult.Error)
 	}
 
 	return nil

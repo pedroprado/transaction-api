@@ -6,9 +6,7 @@ import (
 )
 
 type BalanceProvisionService interface {
-	Get(balanceProvisionID string) (*entity.BalanceProvision, error)
-	Create(balanceProvision entity.BalanceProvision) (*entity.BalanceProvision, error)
-	Update(balanceProvision entity.BalanceProvision) (*entity.BalanceProvision, error)
+	FindByTransactionID(transactionID string) (entity.BalanceProvisions, error)
 }
 
 type BalanceProvisionRepository interface {

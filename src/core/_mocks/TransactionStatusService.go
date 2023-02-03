@@ -12,29 +12,6 @@ type TransactionStatusService struct {
 	mock.Mock
 }
 
-// Create provides a mock function with given fields: transactionStatus
-func (_m *TransactionStatusService) Create(transactionStatus entity.TransactionStatus) (*entity.TransactionStatus, error) {
-	ret := _m.Called(transactionStatus)
-
-	var r0 *entity.TransactionStatus
-	if rf, ok := ret.Get(0).(func(entity.TransactionStatus) *entity.TransactionStatus); ok {
-		r0 = rf(transactionStatus)
-	} else {
-		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(*entity.TransactionStatus)
-		}
-	}
-
-	var r1 error
-	if rf, ok := ret.Get(1).(func(entity.TransactionStatus) error); ok {
-		r1 = rf(transactionStatus)
-	} else {
-		r1 = ret.Error(1)
-	}
-
-	return r0, r1
-}
-
 // FindByTransactionID provides a mock function with given fields: transactionID
 func (_m *TransactionStatusService) FindByTransactionID(transactionID string) (*entity.TransactionStatus, error) {
 	ret := _m.Called(transactionID)
@@ -51,29 +28,6 @@ func (_m *TransactionStatusService) FindByTransactionID(transactionID string) (*
 	var r1 error
 	if rf, ok := ret.Get(1).(func(string) error); ok {
 		r1 = rf(transactionID)
-	} else {
-		r1 = ret.Error(1)
-	}
-
-	return r0, r1
-}
-
-// Update provides a mock function with given fields: transactionStatus
-func (_m *TransactionStatusService) Update(transactionStatus entity.TransactionStatus) (*entity.TransactionStatus, error) {
-	ret := _m.Called(transactionStatus)
-
-	var r0 *entity.TransactionStatus
-	if rf, ok := ret.Get(0).(func(entity.TransactionStatus) *entity.TransactionStatus); ok {
-		r0 = rf(transactionStatus)
-	} else {
-		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(*entity.TransactionStatus)
-		}
-	}
-
-	var r1 error
-	if rf, ok := ret.Get(1).(func(entity.TransactionStatus) error); ok {
-		r1 = rf(transactionStatus)
 	} else {
 		r1 = ret.Error(1)
 	}
