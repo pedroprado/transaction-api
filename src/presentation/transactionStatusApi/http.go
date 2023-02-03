@@ -26,13 +26,13 @@ func RegisterTransactionStatusApi(ginRouterGroup *gin.RouterGroup, transactionSt
 // @Tags BalanceProvisions
 // @Produce json
 // @Param transaction_id query string true "Transaction ID"
-// @Success 200 {object}
+// @Success 200 {object} responses.TransactionStatus
 // @Failure 400 {object} rest.ErrorResponse
 // @Failure 500 {object} rest.ErrorResponse
-// @Router /balance_provisions [get]
+// @Router /transaction_status [get]
 func (ref *transactionStatusApi) Search(c *gin.Context) {
 	var request SearchTransactionStatusRequest
-	if err := c.ShouldBindQuery(request); err != nil {
+	if err := c.ShouldBindQuery(&request); err != nil {
 		rest.SendBadRequestError(c, err)
 		return
 	}

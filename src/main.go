@@ -20,6 +20,11 @@ import (
 	"pedroprado.transaction.api/src/repository/errorHandler"
 	"pedroprado.transaction.api/src/repository/transactionRepo"
 	"pedroprado.transaction.api/src/repository/transactionStatusRepo"
+
+	_ "pedroprado.transaction.api/src/docs"
+
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 var (
@@ -48,6 +53,7 @@ func main() {
 
 	ginServer := rest.NewServerHttpGin()
 	ginRouterGroup := ginServer.GetGinRouterGroup(relativePath)
+	ginRouterGroup.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	accountApi.RegisterAccountApi(ginRouterGroup, accountService)
 	transactionApi.RegisterTransactionApi(ginRouterGroup, transactionService)
 	balanceProvisionApi.RegisterBalanceProvisionApi(ginRouterGroup, balanceProvisionService)
@@ -56,6 +62,13 @@ func main() {
 	if err := ginServer.StartServer(apiPort); err != nil {
 		logrus.Fatal(errors.WithStack(err))
 	}
+}
+
+func setLoggerFormatter() {
+	formatter := &logrus.JSONFormatter{}
+	formatter.TimestampFormat = "2006-01-02T15:04:05.999999999Z"
+	logrus.SetFormatter(formatter)
+	logrus.SetOutput(&infra.LogWriter{})
 }
 
 func getDb() *gorm.DB {

@@ -1,0 +1,230 @@
+definitions:
+  responses.Account:
+    properties:
+      account_id:
+        type: string
+      agency:
+        type: string
+      balance:
+        type: number
+      bank:
+        type: string
+      created_at:
+        type: string
+      number:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  responses.BalanceProvision:
+    properties:
+      created_at:
+        type: string
+      destination_account_id:
+        type: string
+      origin_account_id:
+        type: string
+      provision_id:
+        type: string
+      status:
+        type: string
+      transaction_id:
+        type: string
+      type:
+        type: string
+      updated_at:
+        type: string
+      value:
+        type: number
+    type: object
+  responses.Transaction:
+    properties:
+      created_at:
+        type: string
+      destination_account_id:
+        type: string
+      origin_account_id:
+        type: string
+      transaction_id:
+        type: string
+      type:
+        type: string
+      updated_at:
+        type: string
+      value:
+        type: number
+    type: object
+  responses.TransactionStatus:
+    properties:
+      created_at:
+        type: string
+      status:
+        type: string
+      transaction_id:
+        type: string
+      transaction_status_id:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  rest.ErrorResponse:
+    properties:
+      error:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /account:
+    post:
+      description: Create an Account
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.Account'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/rest.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/rest.ErrorResponse'
+      summary: Create an Account
+      tags:
+      - Account
+  /account/{account_id}:
+    get:
+      description: Get an Account by id
+      parameters:
+      - description: Account ID
+        in: path
+        name: account_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Account'
+        "204":
+          description: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/rest.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/rest.ErrorResponse'
+      summary: Get an Account by id
+      tags:
+      - Account
+  /balance_provisions:
+    get:
+      description: BalanceProvisions a Transaction
+      parameters:
+      - description: Transaction ID
+        in: query
+        name: transaction_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/responses.BalanceProvision'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/rest.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/rest.ErrorResponse'
+      summary: BalanceProvisions for a Transaction
+      tags:
+      - BalanceProvisions
+  /transaction/{transaction_id}/complete:
+    post:
+      description: Compensate a Transaction
+      parameters:
+      - description: Account ID
+        in: path
+        name: transaction_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "202":
+          description: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/rest.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/rest.ErrorResponse'
+      summary: Compensate a Transaction
+      tags:
+      - Transaction
+  /transaction_status:
+    get:
+      description: BalanceProvisions a Transaction
+      parameters:
+      - description: Transaction ID
+        in: query
+        name: transaction_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.TransactionStatus'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/rest.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/rest.ErrorResponse'
+      summary: BalanceProvisions for a Transaction
+      tags:
+      - BalanceProvisions
+  /transactions:
+    post:
+      description: Create a Transaction
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.Transaction'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/rest.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/rest.ErrorResponse'
+      summary: Create a Transaction
+      tags:
+      - Transaction
+swagger: "2.0"

@@ -1,0 +1,59 @@
+<testsuite failures="0" name="features/create_transaction.feature" skipped="0" tests="1" time="0.447874">
+  <testcase classname="features.create_transaction" name="should create transaction sucessfully" time="0.447874">
+    <system-out>* url apiURL .............................................................. passed
+Given url apiURL .......................................................... passed
+And path "/account/12345" ................................................. passed
+When method GET ........................................................... passed
+Then assert responseStatus == 200 ......................................... passed
+* def intermediaryAccount = response ...................................... passed
+* def intermediaryAccountBalanceBefore = intermediaryAccount.balance ...... passed
+* def account = ........................................................... passed
+Given url apiURL .......................................................... passed
+And path "/account" ....................................................... passed
+And request account ....................................................... passed
+When method POST .......................................................... passed
+Then assert responseStatus == 201 ......................................... passed
+* def originAccount = response ............................................ passed
+* def originAccountBalanceBefore = response.balance ....................... passed
+* def account = ........................................................... passed
+Given url apiURL .......................................................... passed
+And path "/account" ....................................................... passed
+And request account ....................................................... passed
+When method POST .......................................................... passed
+Then assert responseStatus == 201 ......................................... passed
+* def destinationAccount = response ....................................... passed
+* def destinationAccountBalanceBefore = response.balance .................. passed
+* def transactionAmount = 10 .............................................. passed
+* def transaction = ....................................................... passed
+Given url apiURL .......................................................... passed
+And path "/transactions" .................................................. passed
+And request transaction ................................................... passed
+When method POST .......................................................... passed
+Then assert responseStatus == 201 ......................................... passed
+* def transactionID = response.transaction_id ............................. passed
+Given url apiURL .......................................................... passed
+And path "/transaction_status" ............................................ passed
+And param transaction_id = transactionID .................................. passed
+When method GET ........................................................... passed
+Then assert responseStatus == 200 ......................................... passed
+And assert response.status == "OPEN" ...................................... passed
+Given url apiURL .......................................................... passed
+And path "/balance_provisions" ............................................ passed
+And param transaction_id = transactionID .................................. passed
+When method GET ........................................................... passed
+Then assert responseStatus == 200 ......................................... passed
+And assert response.length == 1 ........................................... passed
+And assert response[0].type == "ADD" ...................................... passed
+And assert response[0].status == "OPEN" ................................... passed
+Given url apiURL .......................................................... passed
+And path "/account/" + originAccount.account_id ........................... passed
+When method GET ........................................................... passed
+Then assert responseStatus == 200 ......................................... passed
+And assert response.balance ==  (originAccountBalanceBefore - transactionAmount) . passed
+Given url apiURL .......................................................... passed
+And path "/account/12345" ................................................. passed
+When method GET ........................................................... passed
+Then assert responseStatus == 200 ......................................... passed
+And assert response.balance ==  (intermediaryAccountBalanceBefore + transactionAmount) . passed</system-out>
+  </testcase>
+</testsuite>

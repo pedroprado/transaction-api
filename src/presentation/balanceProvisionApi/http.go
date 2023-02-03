@@ -27,13 +27,13 @@ func RegisterBalanceProvisionApi(ginRouterGroup *gin.RouterGroup, balanceProvisi
 // @Tags BalanceProvisions
 // @Produce json
 // @Param transaction_id query string true "Transaction ID"
-// @Success 200 {object}
+// @Success 200 {array} responses.BalanceProvision
 // @Failure 400 {object} rest.ErrorResponse
 // @Failure 500 {object} rest.ErrorResponse
 // @Router /balance_provisions [get]
 func (ref *balanceProvisionApi) Search(c *gin.Context) {
 	var request SearchBalanceProvisionsRequest
-	if err := c.ShouldBindQuery(request); err != nil {
+	if err := c.ShouldBindQuery(&request); err != nil {
 		rest.SendBadRequestError(c, err)
 		return
 	}

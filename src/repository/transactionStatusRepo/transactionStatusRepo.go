@@ -44,7 +44,7 @@ func (ref *transactionStatusRepository) FindByTransactionID(transactionID string
 
 func (ref *transactionStatusRepository) Create(transactionStatus entity.TransactionStatus) (*entity.TransactionStatus, error) {
 	record := model.NewTransactionStatusFromDomain(transactionStatus)
-	record.TransactionID = uuid.NewString()
+	record.TransactionStatusID = uuid.NewString()
 	record.CreatedAt = time.Now()
 	record.UpdatedAt = time.Now()
 

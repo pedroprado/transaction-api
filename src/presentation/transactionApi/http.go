@@ -53,7 +53,7 @@ func (ref *transactionApi) CreateTransaction(c *gin.Context) {
 // @Tags Transaction
 // @Produce json
 // @Param transaction_id path string true "Account ID"
-// @Success 200 {object}
+// @Success 202
 // @Failure 400 {object} rest.ErrorResponse
 // @Failure 500 {object} rest.ErrorResponse
 // @Router /transaction/{transaction_id}/complete [post]
@@ -70,7 +70,7 @@ func (ref *transactionApi) CompleteTransaction(c *gin.Context) {
 		return
 	}
 
-	c.Status(200)
+	c.Status(202)
 }
 
 // CompensateTransaction Compensate a Transaction godoc
@@ -79,7 +79,7 @@ func (ref *transactionApi) CompleteTransaction(c *gin.Context) {
 // @Tags Transaction
 // @Produce json
 // @Param transaction_id path string true "Account ID"
-// @Success 200 {object}
+// @Success 202
 // @Failure 400 {object} rest.ErrorResponse
 // @Failure 500 {object} rest.ErrorResponse
 // @Router /transaction/{transaction_id}/complete [post]
@@ -96,5 +96,5 @@ func (ref *transactionApi) CompensateTransaction(c *gin.Context) {
 		return
 	}
 
-	c.Status(200)
+	c.Status(202)
 }

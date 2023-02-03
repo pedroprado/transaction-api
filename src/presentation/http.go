@@ -64,12 +64,6 @@ func (ref *serverHttpGin) GetGinRouterGroup(relativePath string) *gin.RouterGrou
 	return ref.ginEngine.Group(relativePath)
 }
 
-type wellNess struct {
-	GoRoutines int
-	CPUs       int
-	DBStatus   bool
-}
-
 func RegisterInfraApi(ginRouterGroup *gin.RouterGroup, diagnosticMode bool) {
 	if diagnosticMode {
 		pprof.RouteRegister(ginRouterGroup, "pprof")

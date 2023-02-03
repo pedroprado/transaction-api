@@ -1,3 +1,10 @@
 
 
 .idea/
+.vscode/
+
+/tests/load/modules/
+/venv/
+.vscode
+target
+/fmtcoverage.html

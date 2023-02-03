@@ -1,5 +1,11 @@
 function fn() {
-  var API_URL = "http://localhost:8098/snapfi"
+
+  var API_URL = java.lang.System.getenv(
+    "API_URL"
+  );
+  if (API_URL == undefined) {
+    API_URL = "http://localhost:8098/snapfi" ;
+  }
 
   var config = {
     apiURL: API_URL,

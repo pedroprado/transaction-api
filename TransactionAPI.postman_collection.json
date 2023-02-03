@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "e420f372-6e66-4628-b277-950bc95e25a9",
+		"name": "TransactionAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Get Account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8098/snapfi/account/12345",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"snapfi",
+								"account",
+								"12345"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bank\": \"11\",\n    \"number\": \"11\",\n    \"agency\": \"1\",\n    \"balance\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8098/snapfi/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"snapfi",
+								"account"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaction",
+			"item": [
+				{
+					"name": "Create Transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transaction_type\": \"PIX_OUT\",\n    \"origin_account_id\": \"cdb33472-aa09-4103-8af4-70d5b6002602\",\n    \"destination_account_id\": \"387abe3f-8e35-4923-8bd1-c095b9c4a413\",\n    \"value\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8098/snapfi/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"snapfi",
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete Transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8098/snapfi/transaction/31127d0e-b956-410a-81e9-eb534b5b501a/complete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"snapfi",
+								"transaction",
+								"31127d0e-b956-410a-81e9-eb534b5b501a",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Compensate Transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8098/snapfi/transaction/31127d0e-b956-410a-81e9-eb534b5b501a/compensate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"snapfi",
+								"transaction",
+								"31127d0e-b956-410a-81e9-eb534b5b501a",
+								"compensate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TransactionStatus",
+			"item": [
+				{
+					"name": "Search Transaction Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8098/snapfi/transaction_status?transaction_id=31127d0e-b956-410a-81e9-eb534b5b501a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"snapfi",
+								"transaction_status"
+							],
+							"query": [
+								{
+									"key": "transaction_id",
+									"value": "31127d0e-b956-410a-81e9-eb534b5b501a"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BalanceProvision",
+			"item": [
+				{
+					"name": "Search Balance Provisions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8098/snapfi/balance_provisions?transaction_id=6b960a2e-4400-4252-a369-aa0b35a998ab",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"snapfi",
+								"balance_provisions"
+							],
+							"query": [
+								{
+									"key": "transaction_id",
+									"value": "6b960a2e-4400-4252-a369-aa0b35a998ab"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}

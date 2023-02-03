@@ -61,7 +61,7 @@ func (ref *balanceProvisionRepository) FindByTransactionID(transactionID string)
 
 func (ref *balanceProvisionRepository) Create(balanceProvision entity.BalanceProvision) (*entity.BalanceProvision, error) {
 	record := model.NewBalanceProvisionFromDomain(balanceProvision)
-	record.TransactionID = uuid.NewString()
+	record.ProvisionID = uuid.NewString()
 	record.CreatedAt = time.Now()
 	record.UpdatedAt = time.Now()
 

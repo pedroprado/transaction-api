@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+      
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            
+        <meta charset="utf-8">
+            
+        <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+            
+        <link href="res/bootstrap.min.css" rel="stylesheet" type="text/css">
+            
+        <link href="res/karate-report.css" rel="stylesheet" type="text/css">
+            
+        <link href="favicon.ico" rel="shortcut icon">
+            <script src="res/jquery.min.js" type="text/javascript"></script>
+    <script src="res/jquery.tablesorter.min.js" type="text/javascript"></script>
+    <script src="res/bootstrap.min.js" type="text/javascript"></script>
+    <script src="res/karate-report.js" type="text/javascript"></script>
+    
+        <title>features.complete_transaction</title>
+          
+    </head>
+      
+    <body>
+            
+        <div id="root-container">
+                  
+            <div id="leftnav">
+                        
+                <div class="nav-logo">
+                              <a href="karate-summary.html">
+            <img alt="Karate" src="res/karate-logo.svg">
+          </a>
+          
+                    <div class="nav-count">
+                                    
+                        <div class="bg-success" id="nav-pass">1</div>
+                                    
+                        <div class="bg-danger" id="nav-fail">0</div>
+                                  
+                    </div>
+                            
+                </div>
+                        
+                <div id="nav-type">Scenarios</div>
+                         
+        
+                <div id="nav-date">2023-02-03 05:56:44 PM</div>
+                        
+      
+                <div class="nav-container">
+                    <div class="nav-item passed">
+                        <a href="#[1:7]">[1:7] should complete transaction </a>
+                    </div>
+                </div>
+            </div>
+                  
+            <div id="content">
+                      
+                <div class="page-heading alert alert-primary">
+                    <a href="karate-summary.html">Summary</a><span class="feature-label">|</span><a href="karate-tags.html">Tags</a><span class="feature-label">|</span><span class="feature-label">Feature:</span><span class="feature-name">features/complete_transaction.feature</span><span class="feature-description">Complete Transaction</span>
+                </div>
+                <div class="scenario">
+                    <div class="scenario-heading" id="[1:7]">
+                        <div class="heading-container">
+                            <div class="scenario-tags"></div>
+                            <span class="scenario-keyword">Scenario: [1:7]</span><span class="scenario-name">should complete transaction </span>
+                        </div>
+                        <div class="scenario-time passed">ms: 577</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="[1:7]bg">
+                            <div class="step-ref bg-step">&gt;&gt;</div>
+                            <div class="step-cell passed">Background:</div>
+                        </div>
+                        <div class="time-cell passed"></div>
+                    </div>
+                    <div class="step-row" data-parent="[1:7]bg">
+                        <div class="step-container" id="1">
+                            <div class="step-ref bg-step">1</div>
+                            <div class="step-cell passed">* url apiURL</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-cell comment"># BDD</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-cell comment"># Given a transaction OPEN</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-cell comment"># When it is requested to complete</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-cell comment"># Then the transaction goes to BOOKED status</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-cell comment"># And the provision should be closed</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-cell comment"># And the balance should be added to the destination account</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-cell comment"># And the balance should be subtracted from the intermediary account</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-cell comment">#  starting from cenario where we create a transaction (produces a OPEN transaction)</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="2">
+                            <div class="step-ref passed">2</div>
+                            <div class="step-cell passed">* call read('classpath:features/create_transaction.feature@CreateTransaction')</div>
+                        </div>
+                        <div class="time-cell passed">487</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="2.1">
+                            <div class="step-ref passed">&gt;&gt;</div>
+                            <div class="step-cell passed">features/create_transaction.feature</div>
+                        </div>
+                        <div class="time-cell passed">443</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="3">
+                            <div class="step-ref passed">3</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">* url apiURL</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell comment"># get intermediary account</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="4">
+                            <div class="step-ref passed">4</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">Given url apiURL</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="5">
+                            <div class="step-ref passed">5</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And path "/account/12345"</div>
+                        </div>
+                        <div class="time-cell passed">7</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="6">
+                            <div class="step-ref passed">6</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">When method GET</div>
+                        </div>
+                        <div class="time-cell passed">227</div>
+                    </div>
+                    <div class="preformatted" data-parent="6">17:56:43.692 request:
+1 &gt; GET http://localhost:8098/snapfi/account/12345
+1 &gt; Accept-Encoding: gzip,deflate
+1 &gt; Connection: Keep-Alive
+1 &gt; Host: localhost:8098
+1 &gt; User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+17:56:43.714 response time in milliseconds: 18.27
+1 &lt; 200
+1 &lt; Content-Length: 176
+1 &lt; Content-Type: application/json; charset=utf-8
+1 &lt; Date: Fri, 03 Feb 2023 20:56:43 GMT
+{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":10000029,"created_at":"2023-02-03T16:39:31.078441-03:00","updated_at":"2023-02-03T17:51:33.799118-03:00"}</div>
+                    <div class="step-row">
+                        <div class="step-container" id="7">
+                            <div class="step-ref passed">7</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">Then assert responseStatus == 200</div>
+                        </div>
+                        <div class="time-cell passed">15</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="8">
+                            <div class="step-ref passed">8</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">* def intermediaryAccount = response</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="9">
+                            <div class="step-ref passed">9</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">* def intermediaryAccountBalanceBefore = intermediaryAccount.balance</div>
+                        </div>
+                        <div class="time-cell passed">11</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell comment"># create origin account</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="10">
+                            <div class="step-ref passed">10</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">* def account =</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="preformatted" data-parent="10">{
+    "bank": "11",
+    "number": "11",
+    "agency": "1",
+    "balance": 100
+}</div>
+                    <div class="step-row">
+                        <div class="step-container" id="11">
+                            <div class="step-ref passed">11</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">Given url apiURL</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="12">
+                            <div class="step-ref passed">12</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And path "/account"</div>
+                        </div>
+                        <div class="time-cell passed">3</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="13">
+                            <div class="step-ref passed">13</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And request account</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="14">
+                            <div class="step-ref passed">14</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">When method POST</div>
+                        </div>
+                        <div class="time-cell passed">10</div>
+                    </div>
+                    <div class="preformatted" data-parent="14">17:56:43.750 request:
+2 &gt; POST http://localhost:8098/snapfi/account
+2 &gt; Accept-Encoding: gzip,deflate
+2 &gt; Connection: Keep-Alive
+2 &gt; Content-Length: 54
+2 &gt; Content-Type: application/json; charset=UTF-8
+2 &gt; Host: localhost:8098
+2 &gt; User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"bank":"11","number":"11","agency":"1","balance":100}
+
+17:56:43.755 response time in milliseconds: 4.78
+2 &lt; 201
+2 &lt; Content-Length: 202
+2 &lt; Content-Type: application/json; charset=utf-8
+2 &lt; Date: Fri, 03 Feb 2023 20:56:43 GMT
+{"account_id":"f9a5182b-01bd-42bd-8ee4-f784724bf9c5","bank":"11","number":"11","agency":"1","balance":100,"created_at":"2023-02-03T17:56:43.752244-03:00","updated_at":"2023-02-03T17:56:43.752244-03:00"}</div>
+                    <div class="step-row">
+                        <div class="step-container" id="15">
+                            <div class="step-ref passed">15</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">Then assert responseStatus == 201</div>
+                        </div>
+                        <div class="time-cell passed">5</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="16">
+                            <div class="step-ref passed">16</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">* def originAccount = response</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="17">
+                            <div class="step-ref passed">17</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">* def originAccountBalanceBefore = response.balance</div>
+                        </div>
+                        <div class="time-cell passed">5</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell comment"># create destination account</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="18">
+                            <div class="step-ref passed">18</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">* def account =</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="preformatted" data-parent="18">{
+    "bank": "22",
+    "number": "22",
+    "agency": "2",
+    "balance": 100
+}</div>
+                    <div class="step-row">
+                        <div class="step-container" id="19">
+                            <div class="step-ref passed">19</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">Given url apiURL</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="20">
+                            <div class="step-ref passed">20</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And path "/account"</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="21">
+                            <div class="step-ref passed">21</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And request account</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="22">
+                            <div class="step-ref passed">22</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">When method POST</div>
+                        </div>
+                        <div class="time-cell passed">7</div>
+                    </div>
+                    <div class="preformatted" data-parent="22">17:56:43.769 request:
+3 &gt; POST http://localhost:8098/snapfi/account
+3 &gt; Accept-Encoding: gzip,deflate
+3 &gt; Connection: Keep-Alive
+3 &gt; Content-Length: 54
+3 &gt; Content-Type: application/json; charset=UTF-8
+3 &gt; Host: localhost:8098
+3 &gt; User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"bank":"22","number":"22","agency":"2","balance":100}
+
+17:56:43.773 response time in milliseconds: 3.57
+3 &lt; 201
+3 &lt; Content-Length: 202
+3 &lt; Content-Type: application/json; charset=utf-8
+3 &lt; Date: Fri, 03 Feb 2023 20:56:43 GMT
+{"account_id":"dd464865-2d6f-48c1-92eb-353a51d8d186","bank":"22","number":"22","agency":"2","balance":100,"created_at":"2023-02-03T17:56:43.770323-03:00","updated_at":"2023-02-03T17:56:43.770323-03:00"}</div>
+                    <div class="step-row">
+                        <div class="step-container" id="23">
+                            <div class="step-ref passed">23</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">Then assert responseStatus == 201</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="24">
+                            <div class="step-ref passed">24</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">* def destinationAccount = response</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="25">
+                            <div class="step-ref passed">25</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">* def destinationAccountBalanceBefore = response.balance</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell comment"># BDD</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell comment"># Given an existing origin account</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell comment"># And an exiting destination account</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell comment"># When a transaction is created with value X</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell comment"># Then orign account must have X of its valance blocked (provisioneg)</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell comment"># And transaction must be in status OPEN</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell comment"># create origin account</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="26">
+                            <div class="step-ref passed">26</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">* def transactionAmount = 10</div>
+                        </div>
+                        <div class="time-cell passed">4</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="27">
+                            <div class="step-ref passed">27</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">* def transaction =</div>
+                        </div>
+                        <div class="time-cell passed">11</div>
+                    </div>
+                    <div class="preformatted" data-parent="27">{
+    "transaction_type": "PIX_OUT",
+    "origin_account_id": "#(originAccount.account_id)",
+    "destination_account_id": "#(destinationAccount.account_id)",
+    "value": 10
+}</div>
+                    <div class="step-row">
+                        <div class="step-container" id="28">
+                            <div class="step-ref passed">28</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">Given url apiURL</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="29">
+                            <div class="step-ref passed">29</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And path "/transactions"</div>
+                        </div>
+                        <div class="time-cell passed">4</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="30">
+                            <div class="step-ref passed">30</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And request transaction</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="31">
+                            <div class="step-ref passed">31</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">When method POST</div>
+                        </div>
+                        <div class="time-cell passed">13</div>
+                    </div>
+                    <div class="preformatted" data-parent="31">17:56:43.795 request:
+4 &gt; POST http://localhost:8098/snapfi/transactions
+4 &gt; Accept-Encoding: gzip,deflate
+4 &gt; Connection: Keep-Alive
+4 &gt; Content-Length: 164
+4 &gt; Content-Type: application/json; charset=UTF-8
+4 &gt; Host: localhost:8098
+4 &gt; User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"transaction_type":"PIX_OUT","origin_account_id":"f9a5182b-01bd-42bd-8ee4-f784724bf9c5","destination_account_id":"dd464865-2d6f-48c1-92eb-353a51d8d186","value":10}
+
+17:56:43.807 response time in milliseconds: 10.73
+4 &lt; 201
+4 &lt; Content-Length: 310
+4 &lt; Content-Type: application/json; charset=utf-8
+4 &lt; Date: Fri, 03 Feb 2023 20:56:43 GMT
+{"transaction_id":"9fd529eb-9d07-435c-b65b-d1747460b6ae","type":"PIX_OUT","origin_account_id":"f9a5182b-01bd-42bd-8ee4-f784724bf9c5","destination_account_id":"dd464865-2d6f-48c1-92eb-353a51d8d186","value":10,"created_at":"2023-02-03T17:56:43.798752295-03:00","updated_at":"2023-02-03T17:56:43.798752394-03:00"}</div>
+                    <div class="step-row">
+                        <div class="step-container" id="32">
+                            <div class="step-ref passed">32</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">Then assert responseStatus == 201</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="33">
+                            <div class="step-ref passed">33</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">* def transactionID = response.transaction_id</div>
+                        </div>
+                        <div class="time-cell passed">5</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="34">
+                            <div class="step-ref passed">34</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">Given url apiURL</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="35">
+                            <div class="step-ref passed">35</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And path "/transaction_status"</div>
+                        </div>
+                        <div class="time-cell passed">3</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="36">
+                            <div class="step-ref passed">36</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And param transaction_id = transactionID</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="37">
+                            <div class="step-ref passed">37</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">When method GET</div>
+                        </div>
+                        <div class="time-cell passed">6</div>
+                    </div>
+                    <div class="preformatted" data-parent="37">17:56:43.819 request:
+5 &gt; GET http://localhost:8098/snapfi/transaction_status?transaction_id=9fd529eb-9d07-435c-b65b-d1747460b6ae
+5 &gt; Accept-Encoding: gzip,deflate
+5 &gt; Connection: Keep-Alive
+5 &gt; Host: localhost:8098
+5 &gt; User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+17:56:43.822 response time in milliseconds: 2.17
+5 &lt; 200
+5 &lt; Content-Length: 232
+5 &lt; Content-Type: application/json; charset=utf-8
+5 &lt; Date: Fri, 03 Feb 2023 20:56:43 GMT
+{"transaction_status_id":"8afdf7cb-8266-44ed-ba79-4c5c97ddc92b","status":"OPEN","transaction_id":"9fd529eb-9d07-435c-b65b-d1747460b6ae","created_at":"2023-02-03T17:56:43.799524-03:00","updated_at":"2023-02-03T17:56:43.799524-03:00"}</div>
+                    <div class="step-row">
+                        <div class="step-container" id="38">
+                            <div class="step-ref passed">38</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">Then assert responseStatus == 200</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="39">
+                            <div class="step-ref passed">39</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And assert response.status == "OPEN"</div>
+                        </div>
+                        <div class="time-cell passed">19</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="40">
+                            <div class="step-ref passed">40</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">Given url apiURL</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="41">
+                            <div class="step-ref passed">41</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And path "/balance_provisions"</div>
+                        </div>
+                        <div class="time-cell passed">4</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="42">
+                            <div class="step-ref passed">42</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And param transaction_id = transactionID</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="43">
+                            <div class="step-ref passed">43</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">When method GET</div>
+                        </div>
+                        <div class="time-cell passed">5</div>
+                    </div>
+                    <div class="preformatted" data-parent="43">17:56:43.848 request:
+6 &gt; GET http://localhost:8098/snapfi/balance_provisions?transaction_id=9fd529eb-9d07-435c-b65b-d1747460b6ae
+6 &gt; Accept-Encoding: gzip,deflate
+6 &gt; Connection: Keep-Alive
+6 &gt; Host: localhost:8098
+6 &gt; User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+17:56:43.850 response time in milliseconds: 1.79
+6 &lt; 200
+6 &lt; Content-Length: 372
+6 &lt; Content-Type: application/json; charset=utf-8
+6 &lt; Date: Fri, 03 Feb 2023 20:56:43 GMT
+[{"provision_id":"ad7822d2-ec7f-4303-a9a0-a1932fc211bc","value":10,"origin_account_id":"f9a5182b-01bd-42bd-8ee4-f784724bf9c5","destination_account_id":"dd464865-2d6f-48c1-92eb-353a51d8d186","type":"ADD","status":"OPEN","transaction_id":"9fd529eb-9d07-435c-b65b-d1747460b6ae","created_at":"2023-02-03T17:56:43.802765-03:00","updated_at":"2023-02-03T17:56:43.802765-03:00"}]</div>
+                    <div class="step-row">
+                        <div class="step-container" id="44">
+                            <div class="step-ref passed">44</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">Then assert responseStatus == 200</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="45">
+                            <div class="step-ref passed">45</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And assert response.length == 1</div>
+                        </div>
+                        <div class="time-cell passed">13</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="46">
+                            <div class="step-ref passed">46</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And assert response[0].type == "ADD"</div>
+                        </div>
+                        <div class="time-cell passed">18</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="47">
+                            <div class="step-ref passed">47</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And assert response[0].status == "OPEN"</div>
+                        </div>
+                        <div class="time-cell passed">13</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell comment"># check amount was subtracted (blocked) from origin account</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="48">
+                            <div class="step-ref passed">48</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">Given url apiURL</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="49">
+                            <div class="step-ref passed">49</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And path "/account/" + originAccount.account_id</div>
+                        </div>
+                        <div class="time-cell passed">6</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="50">
+                            <div class="step-ref passed">50</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">When method GET</div>
+                        </div>
+                        <div class="time-cell passed">5</div>
+                    </div>
+                    <div class="preformatted" data-parent="50">17:56:43.903 request:
+7 &gt; GET http://localhost:8098/snapfi/account/f9a5182b-01bd-42bd-8ee4-f784724bf9c5
+7 &gt; Accept-Encoding: gzip,deflate
+7 &gt; Connection: Keep-Alive
+7 &gt; Host: localhost:8098
+7 &gt; User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+17:56:43.906 response time in milliseconds: 1.68
+7 &lt; 200
+7 &lt; Content-Length: 201
+7 &lt; Content-Type: application/json; charset=utf-8
+7 &lt; Date: Fri, 03 Feb 2023 20:56:43 GMT
+{"account_id":"f9a5182b-01bd-42bd-8ee4-f784724bf9c5","bank":"11","number":"11","agency":"1","balance":90,"created_at":"2023-02-03T17:56:43.752244-03:00","updated_at":"2023-02-03T17:56:43.800716-03:00"}</div>
+                    <div class="step-row">
+                        <div class="step-container" id="51">
+                            <div class="step-ref passed">51</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">Then assert responseStatus == 200</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="52">
+                            <div class="step-ref passed">52</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And assert response.balance ==  (originAccountBalanceBefore - transactionAmount)</div>
+                        </div>
+                        <div class="time-cell passed">11</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell comment">#  chec amount was add to intermediary account</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="53">
+                            <div class="step-ref passed">53</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">Given url apiURL</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="54">
+                            <div class="step-ref passed">54</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And path "/account/12345"</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="55">
+                            <div class="step-ref passed">55</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">When method GET</div>
+                        </div>
+                        <div class="time-cell passed">4</div>
+                    </div>
+                    <div class="preformatted" data-parent="55">17:56:43.920 request:
+8 &gt; GET http://localhost:8098/snapfi/account/12345
+8 &gt; Accept-Encoding: gzip,deflate
+8 &gt; Connection: Keep-Alive
+8 &gt; Host: localhost:8098
+8 &gt; User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+17:56:43.923 response time in milliseconds: 1.57
+8 &lt; 200
+8 &lt; Content-Length: 176
+8 &lt; Content-Type: application/json; charset=utf-8
+8 &lt; Date: Fri, 03 Feb 2023 20:56:43 GMT
+{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":10000039,"created_at":"2023-02-03T16:39:31.078441-03:00","updated_at":"2023-02-03T17:56:43.802013-03:00"}</div>
+                    <div class="step-row">
+                        <div class="step-container" id="56">
+                            <div class="step-ref passed">56</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">Then assert responseStatus == 200</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="57">
+                            <div class="step-ref passed">57</div>
+                            <div class="step-indent"> </div>
+                            <div class="step-cell passed">And assert response.balance ==  (intermediaryAccountBalanceBefore + transactionAmount)</div>
+                        </div>
+                        <div class="time-cell passed">8</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="58">
+                            <div class="step-ref passed">58</div>
+                            <div class="step-cell passed">Given url apiURL</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="59">
+                            <div class="step-ref passed">59</div>
+                            <div class="step-cell passed">And path "/transaction/" + transactionID + "/complete"</div>
+                        </div>
+                        <div class="time-cell passed">5</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="60">
+                            <div class="step-ref passed">60</div>
+                            <div class="step-cell passed">And request {}</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="61">
+                            <div class="step-ref passed">61</div>
+                            <div class="step-cell passed">When method POST</div>
+                        </div>
+                        <div class="time-cell passed">12</div>
+                    </div>
+                    <div class="preformatted" data-parent="61">17:56:43.941 request:
+1 &gt; POST http://localhost:8098/snapfi/transaction/9fd529eb-9d07-435c-b65b-d1747460b6ae/complete
+1 &gt; Accept-Encoding: gzip,deflate
+1 &gt; Connection: Keep-Alive
+1 &gt; Content-Length: 2
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Host: localhost:8098
+1 &gt; User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{}
+
+17:56:43.951 response time in milliseconds: 9.28
+1 &lt; 202
+1 &lt; Content-Length: 0
+1 &lt; Date: Fri, 03 Feb 2023 20:56:43 GMT</div>
+                    <div class="step-row">
+                        <div class="step-container" id="62">
+                            <div class="step-ref passed">62</div>
+                            <div class="step-cell passed">Then assert responseStatus == 202</div>
+                        </div>
+                        <div class="time-cell passed">6</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="63">
+                            <div class="step-ref passed">63</div>
+                            <div class="step-cell passed">Given url apiURL</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="64">
+                            <div class="step-ref passed">64</div>
+                            <div class="step-cell passed">And path "/transaction_status"</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="65">
+                            <div class="step-ref passed">65</div>
+                            <div class="step-cell passed">And param transaction_id = transactionID</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="66">
+                            <div class="step-ref passed">66</div>
+                            <div class="step-cell passed">When method GET</div>
+                        </div>
+                        <div class="time-cell passed">4</div>
+                    </div>
+                    <div class="preformatted" data-parent="66">17:56:43.960 request:
+2 &gt; GET http://localhost:8098/snapfi/transaction_status?transaction_id=9fd529eb-9d07-435c-b65b-d1747460b6ae
+2 &gt; Accept-Encoding: gzip,deflate
+2 &gt; Connection: Keep-Alive
+2 &gt; Host: localhost:8098
+2 &gt; User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+17:56:43.962 response time in milliseconds: 1.62
+2 &lt; 200
+2 &lt; Content-Length: 234
+2 &lt; Content-Type: application/json; charset=utf-8
+2 &lt; Date: Fri, 03 Feb 2023 20:56:43 GMT
+{"transaction_status_id":"8afdf7cb-8266-44ed-ba79-4c5c97ddc92b","status":"BOOKED","transaction_id":"9fd529eb-9d07-435c-b65b-d1747460b6ae","created_at":"2023-02-03T17:56:43.799524-03:00","updated_at":"2023-02-03T17:56:43.948055-03:00"}</div>
+                    <div class="step-row">
+                        <div class="step-container" id="67">
+                            <div class="step-ref passed">67</div>
+                            <div class="step-cell passed">Then assert responseStatus == 200</div>
+                        </div>
+                        <div class="time-cell passed">1</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="68">
+                            <div class="step-ref passed">68</div>
+                            <div class="step-cell passed">And assert response.status == "BOOKED"</div>
+                        </div>
+                        <div class="time-cell passed">11</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="69">
+                            <div class="step-ref passed">69</div>
+                            <div class="step-cell passed">Given url apiURL</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="70">
+                            <div class="step-ref passed">70</div>
+                            <div class="step-cell passed">And path "/balance_provisions"</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="71">
+                            <div class="step-ref passed">71</div>
+                            <div class="step-cell passed">And param transaction_id = transactionID</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="72">
+                            <div class="step-ref passed">72</div>
+                            <div class="step-cell passed">When method GET</div>
+                        </div>
+                        <div class="time-cell passed">4</div>
+                    </div>
+                    <div class="preformatted" data-parent="72">17:56:43.977 request:
+3 &gt; GET http://localhost:8098/snapfi/balance_provisions?transaction_id=9fd529eb-9d07-435c-b65b-d1747460b6ae
+3 &gt; Accept-Encoding: gzip,deflate
+3 &gt; Connection: Keep-Alive
+3 &gt; Host: localhost:8098
+3 &gt; User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+17:56:43.979 response time in milliseconds: 1.65
+3 &lt; 200
+3 &lt; Content-Length: 374
+3 &lt; Content-Type: application/json; charset=utf-8
+3 &lt; Date: Fri, 03 Feb 2023 20:56:43 GMT
+[{"provision_id":"ad7822d2-ec7f-4303-a9a0-a1932fc211bc","value":10,"origin_account_id":"f9a5182b-01bd-42bd-8ee4-f784724bf9c5","destination_account_id":"dd464865-2d6f-48c1-92eb-353a51d8d186","type":"ADD","status":"CLOSED","transaction_id":"9fd529eb-9d07-435c-b65b-d1747460b6ae","created_at":"2023-02-03T17:56:43.802765-03:00","updated_at":"2023-02-03T17:56:43.947412-03:00"}]</div>
+                    <div class="step-row">
+                        <div class="step-container" id="73">
+                            <div class="step-ref passed">73</div>
+                            <div class="step-cell passed">Then assert responseStatus == 200</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="74">
+                            <div class="step-ref passed">74</div>
+                            <div class="step-cell passed">And assert response.length == 1</div>
+                        </div>
+                        <div class="time-cell passed">1</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="75">
+                            <div class="step-ref passed">75</div>
+                            <div class="step-cell passed">And assert response[0].type == "ADD"</div>
+                        </div>
+                        <div class="time-cell passed">2</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="76">
+                            <div class="step-ref passed">76</div>
+                            <div class="step-cell passed">And assert response[0].status == "CLOSED"</div>
+                        </div>
+                        <div class="time-cell passed">10</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-cell comment"># check amount was added to destination account</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="77">
+                            <div class="step-ref passed">77</div>
+                            <div class="step-cell passed">Given url apiURL</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="78">
+                            <div class="step-ref passed">78</div>
+                            <div class="step-cell passed">And path "/account/" + destinationAccount.account_id</div>
+                        </div>
+                        <div class="time-cell passed">5</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="79">
+                            <div class="step-ref passed">79</div>
+                            <div class="step-cell passed">When method GET</div>
+                        </div>
+                        <div class="time-cell passed">5</div>
+                    </div>
+                    <div class="preformatted" data-parent="79">17:56:44.001 request:
+4 &gt; GET http://localhost:8098/snapfi/account/dd464865-2d6f-48c1-92eb-353a51d8d186
+4 &gt; Accept-Encoding: gzip,deflate
+4 &gt; Connection: Keep-Alive
+4 &gt; Host: localhost:8098
+4 &gt; User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+17:56:44.004 response time in milliseconds: 1.79
+4 &lt; 200
+4 &lt; Content-Length: 202
+4 &lt; Content-Type: application/json; charset=utf-8
+4 &lt; Date: Fri, 03 Feb 2023 20:56:44 GMT
+{"account_id":"dd464865-2d6f-48c1-92eb-353a51d8d186","bank":"22","number":"22","agency":"2","balance":110,"created_at":"2023-02-03T17:56:43.770323-03:00","updated_at":"2023-02-03T17:56:43.946498-03:00"}</div>
+                    <div class="step-row">
+                        <div class="step-container" id="80">
+                            <div class="step-ref passed">80</div>
+                            <div class="step-cell passed">Then assert responseStatus == 200</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="81">
+                            <div class="step-ref passed">81</div>
+                            <div class="step-cell passed">And assert response.balance ==  (destinationAccountBalanceBefore + transactionAmount)</div>
+                        </div>
+                        <div class="time-cell passed">9</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container">
+                            <div class="step-ref passed"></div>
+                            <div class="step-cell comment"># check the intermediary account have the original balance</div>
+                        </div>
+                        <div class="time-cell comment"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="82">
+                            <div class="step-ref passed">82</div>
+                            <div class="step-cell passed">Given url apiURL</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="83">
+                            <div class="step-ref passed">83</div>
+                            <div class="step-cell passed">And path "/account/12345"</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="84">
+                            <div class="step-ref passed">84</div>
+                            <div class="step-cell passed">When method GET</div>
+                        </div>
+                        <div class="time-cell passed">5</div>
+                    </div>
+                    <div class="preformatted" data-parent="84">17:56:44.017 request:
+5 &gt; GET http://localhost:8098/snapfi/account/12345
+5 &gt; Accept-Encoding: gzip,deflate
+5 &gt; Connection: Keep-Alive
+5 &gt; Host: localhost:8098
+5 &gt; User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+17:56:44.020 response time in milliseconds: 2.04
+5 &lt; 200
+5 &lt; Content-Length: 176
+5 &lt; Content-Type: application/json; charset=utf-8
+5 &lt; Date: Fri, 03 Feb 2023 20:56:44 GMT
+{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":10000029,"created_at":"2023-02-03T16:39:31.078441-03:00","updated_at":"2023-02-03T17:56:43.945698-03:00"}</div>
+                    <div class="step-row">
+                        <div class="step-container" id="85">
+                            <div class="step-ref passed">85</div>
+                            <div class="step-cell passed">Then assert responseStatus == 200</div>
+                        </div>
+                        <div class="time-cell passed">0</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-container" id="86">
+                            <div class="step-ref passed">86</div>
+                            <div class="step-cell passed">And assert response.balance ==  intermediaryAccountBalanceBefore</div>
+                        </div>
+                        <div class="time-cell passed">8</div>
+                    </div>
+                </div>
+            </div>
+                
+        </div>
+           
+  
+    </body>
+    
+</html>

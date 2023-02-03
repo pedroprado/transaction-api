@@ -1,0 +1,35 @@
+<testsuite failures="0" name="features/complete_transaction.feature" skipped="0" tests="1" time="0.577303">
+  <testcase classname="features.complete_transaction" name="should complete transaction" time="0.577303">
+    <system-out>* url apiURL .............................................................. passed
+* call read('classpath:features/create_transaction.feature@CreateTransaction') . passed
+Given url apiURL .......................................................... passed
+And path "/transaction/" + transactionID + "/complete" .................... passed
+And request {} ............................................................ passed
+When method POST .......................................................... passed
+Then assert responseStatus == 202 ......................................... passed
+Given url apiURL .......................................................... passed
+And path "/transaction_status" ............................................ passed
+And param transaction_id = transactionID .................................. passed
+When method GET ........................................................... passed
+Then assert responseStatus == 200 ......................................... passed
+And assert response.status == "BOOKED" .................................... passed
+Given url apiURL .......................................................... passed
+And path "/balance_provisions" ............................................ passed
+And param transaction_id = transactionID .................................. passed
+When method GET ........................................................... passed
+Then assert responseStatus == 200 ......................................... passed
+And assert response.length == 1 ........................................... passed
+And assert response[0].type == "ADD" ...................................... passed
+And assert response[0].status == "CLOSED" ................................. passed
+Given url apiURL .......................................................... passed
+And path "/account/" + destinationAccount.account_id ...................... passed
+When method GET ........................................................... passed
+Then assert responseStatus == 200 ......................................... passed
+And assert response.balance ==  (destinationAccountBalanceBefore + transactionAmount) . passed
+Given url apiURL .......................................................... passed
+And path "/account/12345" ................................................. passed
+When method GET ........................................................... passed
+Then assert responseStatus == 200 ......................................... passed
+And assert response.balance ==  intermediaryAccountBalanceBefore .......... passed</system-out>
+  </testcase>
+</testsuite>

@@ -2,40 +2,86 @@
 
 API for creating financial transactions
 
-## Entities and Use Cases
+## 1.Entities Diagram
 
 ![alt-text](/images/transactionAPI.jpg)
 
-## Use Cases
-### 1.Create Accounts
+## 2.Use Cases
+
+### i.Create Accounts
 
 Create accounts for simulating the transaction
 
-### 2.Create Transaction
+### ii.Create Transaction
 
 Create a transaction, provisioning the resources in an intermediary account
 
-### 3.Complete Transaction
+### iii.Complete Transaction
 
 Send the balance provisioned (transferred to the intermediary account) to the destination account.
 
 (development) When the transference fails, created a rollback provisioning
 
-
-### 4.Compensate Transaction  (development)
+### iv.Compensate Failed Transactions  (development)
 
 Rolls back the transaction, moving the balance back from the intermediary account for the source account.
 
-## Running and Testing
+## 3.API Documentation
 
-### 1.Unit Tests
+### i.Swagger
+
+The swagger can be accessed by url (application must be running):
+
+http://localhost:8098/snapfi/swagger/index.html
+
+### ii.Postman Collection
+
+A collection is available in the root directory with the name  **TransactionAPI.postman_collection.json** .
+
+## 4.Running and Testing
+
+### i.Unit Tests
 
 In the root directory run **go test ./src/...**
 
-### 2. Integration Tests
+### ii. Integration Tests
 
-Run the docker enviromnent: in the root director run the command **(sudo) sh compose.sh**
+The Integration Tests are Broad Integration Tests, as described in https://martinfowler.com/articles/practical-test-pyramid.html.
+Thus, the tests should cover all the behaviors of the whole application and the integration with database, external apis and services.
 
-Run the application (using the .env file for environment variables). Run with **go run src/main.go** or using you prefered IDE.
+First, set up the docker environment: in the root director run the command **(sudo) sh compose.sh**
 
-Run the **karate features**:
+Second, run the application (using the .env file for environment variables). Run with **go run src/main.go** or using you preferred IDE.
+
+#### Testing scenarios manually using Postman:
+
+1. Create a Transaction
+    * Create two accounts (origin and destination) using the account create account api (POST /account)
+    * Create a transaction using the create transaction api ( POST /transactions)
+    * Verify a status OPEN was created for the transaction using the api (GET /transaction_status&transaction_id={transaction_id}) 
+    * Verify a balanceProvision OPEN was created for the transaction using the api (GET /balance_provisions&transaction_id={transaction_id})
+    * Verify the balance was moved from origin account to intermediary account, using api (GET /account/{account_id})
+
+2. Complete a Transaction
+    * Recreate Scenario 1
+    * Complete the transaction using the complete transaction api (POST /transaction/{transaction_id}/complete)
+    * Verify the transaction status is BOOKED using the api (GET /transaction_status&transaction_id={transaction_id}) 
+    * Verify tue balanceProvision was CLOSED the api (GET /balance_provisions&transaction_id={transaction_id})
+    * Verify the balance was moved from intermediary account to destination account, using api (GET /account/{account_id})
+
+3. Failure Completing Transaction
+
+4. Compensate a Failed Transaction
+
+#### Testing scenarios manually using Karate
+
+
+#### Testing scenarios automated
+
+You can run all the tests scenarios described automatically.
+
+In the root directory, use run the script:
+
+**(sudo) sh integration_test.sh**
+
+
