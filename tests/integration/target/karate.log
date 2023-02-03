@@ -1,0 +1,172 @@
+16:22:04.732 [main]  INFO  com.intuit.karate.Main - Karate version: 0.9.6
+16:22:05.102 [main]  INFO  com.intuit.karate.debug.DapServer - debug server started on port: 32795
+16:22:05.879 [nioEventLoopGroup-3-1]  DEBUG c.i.karate.debug.DapServerHandler - command line: /home/pedroprado/Desktop/Projetos/Meus/transaction-api/tests/integration/features/create_acount.feature:9
+16:22:06.416 [Thread-0]  INFO  com.intuit.karate.Runner - waiting for parallel features to complete ...
+16:22:06.427 [pool-1-thread-1]  INFO  com.intuit.karate - found scenario at line: 9
+16:22:06.787 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+1 > POST http://localhost:8098/snapfi/account
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Content-Length: 54
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: localhost:8098
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"bank":"11","number":"11","agency":"1","balance":100}
+
+16:22:06.803 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 13.16
+1 < 404
+1 < Content-Length: 18
+1 < Content-Type: text/plain
+1 < Date: Fri, 03 Feb 2023 19:22:06 GMT
+404 page not found
+
+16:22:06.812 [ForkJoinPool-1-worker-3]  ERROR com.intuit.karate - assertion failed: assert evaluated to false: responseStatus = 201
+16:22:54.388 [nioEventLoopGroup-3-1]  INFO  com.intuit.karate.debug.DapServer - stop: shutting down
+16:22:57.783 [main]  INFO  com.intuit.karate.Main - Karate version: 0.9.6
+16:22:58.058 [main]  INFO  com.intuit.karate.debug.DapServer - debug server started on port: 39213
+16:22:58.351 [nioEventLoopGroup-3-1]  DEBUG c.i.karate.debug.DapServerHandler - command line: /home/pedroprado/Desktop/Projetos/Meus/transaction-api/tests/integration/features/create_acount.feature:9
+16:22:58.864 [Thread-0]  INFO  com.intuit.karate.Runner - waiting for parallel features to complete ...
+16:22:58.875 [pool-1-thread-1]  INFO  com.intuit.karate - found scenario at line: 9
+16:22:59.260 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+1 > POST http://localhost:8098/snapfi/account
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Content-Length: 54
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: localhost:8098
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"bank":"11","number":"11","agency":"1","balance":100}
+
+16:22:59.284 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 21.07
+1 < 201
+1 < Content-Length: 208
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Fri, 03 Feb 2023 19:22:59 GMT
+{"account_id":"001c3115-0b66-447b-a431-0e88cece3471","bank":"11","number":"11","agency":"1","balance":100,"created_at":"2023-02-03T16:22:59.275720004-03:00","updated_at":"2023-02-03T16:22:59.275720111-03:00"}
+
+16:22:59.298 [ForkJoinPool-1-worker-3]  ERROR com.intuit.karate - assertion failed: assert evaluated to false: responseStatus = 201
+16:23:09.090 [nioEventLoopGroup-3-1]  INFO  com.intuit.karate.debug.DapServer - stop: shutting down
+16:25:28.051 [main]  INFO  com.intuit.karate.Main - Karate version: 0.9.6
+16:25:28.310 [main]  INFO  com.intuit.karate.debug.DapServer - debug server started on port: 42839
+16:25:28.682 [nioEventLoopGroup-3-1]  DEBUG c.i.karate.debug.DapServerHandler - command line: /home/pedroprado/Desktop/Projetos/Meus/transaction-api/tests/integration/features/create_acount.feature:9
+16:25:29.198 [Thread-0]  INFO  com.intuit.karate.Runner - waiting for parallel features to complete ...
+16:25:29.209 [pool-1-thread-1]  INFO  com.intuit.karate - found scenario at line: 9
+16:25:31.290 [nioEventLoopGroup-3-1]  INFO  com.intuit.karate.debug.DapServer - stop: shutting down
+16:25:37.411 [main]  INFO  com.intuit.karate.Main - Karate version: 0.9.6
+16:25:37.693 [main]  INFO  com.intuit.karate.debug.DapServer - debug server started on port: 42993
+16:25:38.035 [nioEventLoopGroup-3-1]  DEBUG c.i.karate.debug.DapServerHandler - command line: /home/pedroprado/Desktop/Projetos/Meus/transaction-api/tests/integration/features/create_acount.feature:9
+16:25:38.580 [Thread-0]  INFO  com.intuit.karate.Runner - waiting for parallel features to complete ...
+16:25:38.591 [pool-1-thread-1]  INFO  com.intuit.karate - found scenario at line: 9
+16:25:39.011 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+1 > POST http://localhost:8098/snapfi/account
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Content-Length: 54
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: localhost:8098
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"bank":"11","number":"11","agency":"1","balance":100}
+
+16:25:39.044 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 29.33
+1 < 201
+1 < Content-Length: 208
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Fri, 03 Feb 2023 19:25:39 GMT
+{"account_id":"cf467441-81cd-47bc-9b60-ef0b35a29c94","bank":"11","number":"11","agency":"1","balance":100,"created_at":"2023-02-03T16:25:39.031747596-03:00","updated_at":"2023-02-03T16:25:39.031747711-03:00"}
+
+16:25:41.436 [nioEventLoopGroup-3-1]  INFO  com.intuit.karate.debug.DapServer - stop: shutting down
+16:25:49.968 [main]  INFO  com.intuit.karate.Main - Karate version: 0.9.6
+16:25:50.236 [main]  INFO  com.intuit.karate.debug.DapServer - debug server started on port: 39301
+16:25:50.580 [nioEventLoopGroup-3-1]  DEBUG c.i.karate.debug.DapServerHandler - command line: /home/pedroprado/Desktop/Projetos/Meus/transaction-api/tests/integration/features/create_acount.feature:9
+16:25:51.076 [Thread-0]  INFO  com.intuit.karate.Runner - waiting for parallel features to complete ...
+16:25:51.087 [pool-1-thread-1]  INFO  com.intuit.karate - found scenario at line: 9
+16:25:51.480 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+1 > POST http://localhost:8098/snapfi/account
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Content-Length: 54
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: localhost:8098
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"bank":"11","number":"11","agency":"1","balance":100}
+
+16:25:51.506 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 22.95
+1 < 201
+1 < Content-Length: 208
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Fri, 03 Feb 2023 19:25:51 GMT
+{"account_id":"c0fd8567-47d2-421c-a0c5-8ecc2dbc825e","bank":"11","number":"11","agency":"1","balance":100,"created_at":"2023-02-03T16:25:51.494803118-03:00","updated_at":"2023-02-03T16:25:51.494803195-03:00"}
+
+16:25:51.536 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+2 > GET http://localhost:8098/snapfi/account/c0fd8567-47d2-421c-a0c5-8ecc2dbc825e
+2 > Accept-Encoding: gzip,deflate
+2 > Connection: Keep-Alive
+2 > Host: localhost:8098
+2 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+16:25:51.538 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.73
+2 < 200
+2 < Content-Length: 202
+2 < Content-Type: application/json; charset=utf-8
+2 < Date: Fri, 03 Feb 2023 19:25:51 GMT
+{"account_id":"c0fd8567-47d2-421c-a0c5-8ecc2dbc825e","bank":"11","number":"11","agency":"1","balance":100,"created_at":"2023-02-03T16:25:51.494803-03:00","updated_at":"2023-02-03T16:25:51.494803-03:00"}
+
+16:25:51.547 [ForkJoinPool-1-worker-3]  ERROR com.intuit.karate - assertion failed: path: $.updated_at, actual: '2023-02-03T16:25:51.494803-03:00', expected: '2023-02-03T16:25:51.494803195-03:00', reason: not equal
+16:26:26.954 [nioEventLoopGroup-3-1]  INFO  com.intuit.karate.debug.DapServer - stop: shutting down
+16:26:32.237 [main]  INFO  com.intuit.karate.Main - Karate version: 0.9.6
+16:26:32.542 [main]  INFO  com.intuit.karate.debug.DapServer - debug server started on port: 32807
+16:26:32.745 [nioEventLoopGroup-3-1]  DEBUG c.i.karate.debug.DapServerHandler - command line: /home/pedroprado/Desktop/Projetos/Meus/transaction-api/tests/integration/features/create_acount.feature:9
+16:26:33.267 [Thread-0]  INFO  com.intuit.karate.Runner - waiting for parallel features to complete ...
+16:26:33.282 [pool-1-thread-1]  INFO  com.intuit.karate - found scenario at line: 9
+16:26:33.704 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+1 > POST http://localhost:8098/snapfi/account
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Content-Length: 54
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: localhost:8098
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"bank":"11","number":"11","agency":"1","balance":100}
+
+16:26:33.720 [ForkJoinPool-1-worker-3]  ERROR com.intuit.karate - org.apache.http.conn.HttpHostConnectException: Connect to localhost:8098 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused), http call failed after 15 milliseconds for URL: http://localhost:8098/snapfi/account
+16:26:33.721 [ForkJoinPool-1-worker-3]  ERROR com.intuit.karate - http request failed: 
+org.apache.http.conn.HttpHostConnectException: Connect to localhost:8098 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused)
+16:26:35.830 [nioEventLoopGroup-3-1]  INFO  com.intuit.karate.debug.DapServer - stop: shutting down
+16:26:42.441 [main]  INFO  com.intuit.karate.Main - Karate version: 0.9.6
+16:26:42.846 [main]  INFO  com.intuit.karate.debug.DapServer - debug server started on port: 39575
+16:26:43.147 [nioEventLoopGroup-3-1]  DEBUG c.i.karate.debug.DapServerHandler - command line: /home/pedroprado/Desktop/Projetos/Meus/transaction-api/tests/integration/features/create_acount.feature:9
+16:26:43.712 [Thread-0]  INFO  com.intuit.karate.Runner - waiting for parallel features to complete ...
+16:26:43.726 [pool-1-thread-1]  INFO  com.intuit.karate - found scenario at line: 9
+16:26:44.129 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+1 > POST http://localhost:8098/snapfi/account
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Content-Length: 54
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: localhost:8098
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"bank":"11","number":"11","agency":"1","balance":100}
+
+16:26:44.156 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 23.07
+1 < 201
+1 < Content-Length: 202
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Fri, 03 Feb 2023 19:26:44 GMT
+{"account_id":"f29081b2-094e-42ff-a14e-63c97615c353","bank":"11","number":"11","agency":"1","balance":100,"created_at":"2023-02-03T16:26:44.143941-03:00","updated_at":"2023-02-03T16:26:44.143941-03:00"}
+
+16:26:44.185 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+2 > GET http://localhost:8098/snapfi/account/f29081b2-094e-42ff-a14e-63c97615c353
+2 > Accept-Encoding: gzip,deflate
+2 > Connection: Keep-Alive
+2 > Host: localhost:8098
+2 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+16:26:44.189 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 2.95
+2 < 200
+2 < Content-Length: 202
+2 < Content-Type: application/json; charset=utf-8
+2 < Date: Fri, 03 Feb 2023 19:26:44 GMT
+{"account_id":"f29081b2-094e-42ff-a14e-63c97615c353","bank":"11","number":"11","agency":"1","balance":100,"created_at":"2023-02-03T16:26:44.143941-03:00","updated_at":"2023-02-03T16:26:44.143941-03:00"}
+
+16:26:44.287 [pool-1-thread-1]  INFO  com.intuit.karate.Runner - <<pass>> feature 1 of 1: features/create_acount.feature
+16:26:44.405 [Thread-0]  INFO  com.intuit.karate.debug.DapServer - stop: shutting down

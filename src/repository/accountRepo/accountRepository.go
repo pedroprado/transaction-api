@@ -55,7 +55,7 @@ func (ref *accountRepository) Create(account entity.Account) (*entity.Account, e
 		return nil, errors.WithStack(result.Error)
 	}
 
-	return record.ToDomain(), nil
+	return ref.Get(record.AccountID)
 }
 
 func (ref *accountRepository) GetLock(accountID string) (*entity.Account, error) {

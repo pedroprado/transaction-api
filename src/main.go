@@ -4,11 +4,13 @@ import (
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"gorm.io/gorm"
+	"pedroprado.transaction.api/src/core/useCases/account"
 	"pedroprado.transaction.api/src/core/useCases/balanceProvision"
 	"pedroprado.transaction.api/src/core/useCases/transaction"
 	"pedroprado.transaction.api/src/core/useCases/transactionStatus"
 	"pedroprado.transaction.api/src/infra"
 	rest "pedroprado.transaction.api/src/presentation"
+	"pedroprado.transaction.api/src/presentation/accountApi"
 	"pedroprado.transaction.api/src/presentation/balanceProvisionApi"
 	"pedroprado.transaction.api/src/presentation/transactionApi"
 	"pedroprado.transaction.api/src/presentation/transactionStatusApi"
@@ -38,6 +40,7 @@ func main() {
 	transactionStatusRepository := transactionStatusRepo.NewTransactionStatusRepository(db, errHandler)
 	balanceProvisionRepository := balanceProvisionRepo.NewBalanceProvisionRepository(db, errHandler)
 
+	accountService := account.NewAccountService(accountRepository)
 	transactionService := transaction.NewTransactionService(transactionRepository,
 		transactionStatusRepository, accountRepository, balanceProvisionRepository, db)
 	balanceProvisionService := balanceProvision.NewBalanceProvisionService(balanceProvisionRepository)
@@ -45,6 +48,7 @@ func main() {
 
 	ginServer := rest.NewServerHttpGin()
 	ginRouterGroup := ginServer.GetGinRouterGroup(relativePath)
+	accountApi.RegisterAccountApi(ginRouterGroup, accountService)
 	transactionApi.RegisterTransactionApi(ginRouterGroup, transactionService)
 	balanceProvisionApi.RegisterBalanceProvisionApi(ginRouterGroup, balanceProvisionService)
 	transactionStatusApi.RegisterTransactionStatusApi(ginRouterGroup, transactionStatusService)

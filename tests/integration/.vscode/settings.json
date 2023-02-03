@@ -1,0 +1,3 @@
+{
+    "karateRunner.karateJar.commandLineArgs": "java -cp ../karate/karate.jar com.intuit.karate.Main"
+}

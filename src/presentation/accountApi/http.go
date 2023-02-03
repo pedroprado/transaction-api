@@ -59,7 +59,7 @@ func (ref *accountApi) Get(c *gin.Context) {
 // @Success 201 {object} responses.Account
 // @Failure 400 {object} rest.ErrorResponse
 // @Failure 500 {object} rest.ErrorResponse
-// @Router /account/{account_id} [get]
+// @Router /account [post]
 func (ref *accountApi) Create(c *gin.Context) {
 	var request CreateAccountRequest
 	if err := c.ShouldBindJSON(&request); err != nil {

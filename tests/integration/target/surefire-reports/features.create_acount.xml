@@ -1,0 +1,17 @@
+<testsuite failures="0" name="features/create_acount.feature" skipped="0" tests="1" time="0.311915">
+  <testcase classname="features.create_acount" name="should create account" time="0.311915">
+    <system-out>* url apiURL .............................................................. passed
+* def account = ........................................................... passed
+Given url apiURL .......................................................... passed
+And path "/account" ....................................................... passed
+And request account ....................................................... passed
+When method POST .......................................................... passed
+Then assert responseStatus == 201 ......................................... passed
+* def created = response .................................................. passed
+Given url apiURL .......................................................... passed
+And path "/account/" + created.account_id ................................. passed
+When method GET ........................................................... passed
+Then assert responseStatus == 200 ......................................... passed
+And match response == created ............................................. passed</system-out>
+  </testcase>
+</testsuite>
