@@ -8,8 +8,8 @@ import (
 type TransactionService interface {
 	Get(transactionID string) (*entity.Transaction, error)
 	CreateTransaction(transaction entity.Transaction) (*entity.Transaction, error)
-	CompleteTransaction(transactionID string) (*entity.Transaction, error)
-	CompensateTransaction(transactionID string) (*entity.Transaction, error)
+	CompleteTransaction(transactionID string) error
+	CompensateTransaction(transactionID string) error
 }
 
 type TransactionRepository interface {

@@ -16,3 +16,17 @@ type BalanceProvision struct {
 	CreatedAt            time.Time
 	UpdatedAt            time.Time
 }
+
+type BalanceProvisions []BalanceProvision
+
+func (provisions BalanceProvisions) FindProvisionToComplete() *BalanceProvision {
+	for i := range provisions {
+		provision := provisions[i]
+		if provision.Type == values.ProvisionTypeAdd &&
+			provision.Status == values.ProvisionStatusOpen {
+			return &provision
+		}
+	}
+
+	return nil
+}

@@ -13,49 +13,31 @@ type TransactionService struct {
 }
 
 // CompensateTransaction provides a mock function with given fields: transactionID
-func (_m *TransactionService) CompensateTransaction(transactionID string) (*entity.Transaction, error) {
+func (_m *TransactionService) CompensateTransaction(transactionID string) error {
 	ret := _m.Called(transactionID)
 
-	var r0 *entity.Transaction
-	if rf, ok := ret.Get(0).(func(string) *entity.Transaction); ok {
+	var r0 error
+	if rf, ok := ret.Get(0).(func(string) error); ok {
 		r0 = rf(transactionID)
 	} else {
-		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(*entity.Transaction)
-		}
+		r0 = ret.Error(0)
 	}
 
-	var r1 error
-	if rf, ok := ret.Get(1).(func(string) error); ok {
-		r1 = rf(transactionID)
-	} else {
-		r1 = ret.Error(1)
-	}
-
-	return r0, r1
+	return r0
 }
 
 // CompleteTransaction provides a mock function with given fields: transactionID
-func (_m *TransactionService) CompleteTransaction(transactionID string) (*entity.Transaction, error) {
+func (_m *TransactionService) CompleteTransaction(transactionID string) error {
 	ret := _m.Called(transactionID)
 
-	var r0 *entity.Transaction
-	if rf, ok := ret.Get(0).(func(string) *entity.Transaction); ok {
+	var r0 error
+	if rf, ok := ret.Get(0).(func(string) error); ok {
 		r0 = rf(transactionID)
 	} else {
-		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(*entity.Transaction)
-		}
+		r0 = ret.Error(0)
 	}
 
-	var r1 error
-	if rf, ok := ret.Get(1).(func(string) error); ok {
-		r1 = rf(transactionID)
-	} else {
-		r1 = ret.Error(1)
-	}
-
-	return r0, r1
+	return r0
 }
 
 // CreateTransaction provides a mock function with given fields: transaction

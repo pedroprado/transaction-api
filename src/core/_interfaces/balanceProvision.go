@@ -13,6 +13,7 @@ type BalanceProvisionService interface {
 
 type BalanceProvisionRepository interface {
 	Get(balanceProvisionID string) (*entity.BalanceProvision, error)
+	FindByTransactionID(transactionID string) (entity.BalanceProvisions, error)
 	Create(balanceProvision entity.BalanceProvision) (*entity.BalanceProvision, error)
 	Update(balanceProvision entity.BalanceProvision) (*entity.BalanceProvision, error)
 	WithTransaction(tx *gorm.DB) BalanceProvisionRepository

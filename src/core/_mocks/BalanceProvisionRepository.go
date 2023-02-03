@@ -39,6 +39,29 @@ func (_m *BalanceProvisionRepository) Create(balanceProvision entity.BalanceProv
 	return r0, r1
 }
 
+// FindByTransactionID provides a mock function with given fields: transactionID
+func (_m *BalanceProvisionRepository) FindByTransactionID(transactionID string) (entity.BalanceProvisions, error) {
+	ret := _m.Called(transactionID)
+
+	var r0 entity.BalanceProvisions
+	if rf, ok := ret.Get(0).(func(string) entity.BalanceProvisions); ok {
+		r0 = rf(transactionID)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(entity.BalanceProvisions)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(string) error); ok {
+		r1 = rf(transactionID)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
 // Get provides a mock function with given fields: balanceProvisionID
 func (_m *BalanceProvisionRepository) Get(balanceProvisionID string) (*entity.BalanceProvision, error) {
 	ret := _m.Called(balanceProvisionID)

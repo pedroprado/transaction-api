@@ -8,6 +8,7 @@ import (
 )
 
 var (
+	errorDestinationAccountNotFound  = values.NewErrorValidation("destination account not found")
 	errorOriginAccountNotFound       = values.NewErrorValidation("origin account not found")
 	errorIntermediaryAccountNotFound = values.NewErrorValidation("intermediary account not found")
 )
@@ -77,13 +78,21 @@ func (ref *transactionService) CreateTransaction(transaction entity.Transaction)
 	return createdTransaction, transactionErr
 }
 
-func (ref *transactionService) CompleteTransaction(transactionID string) (*entity.Transaction, error) {
-	return nil, nil
+func (ref *transactionService) CompleteTransaction(transactionID string) error {
+
+	return ref.postgresClient.Transaction(func(tx *gorm.DB) error {
+		transactionRepoTx := ref.transactionRepository.WithTransaction(tx)
+		transactionStatusRepoTx := ref.transactionStatusRepository.WithTransaction(tx)
+		balanceProvisionRepoTx := ref.balanceProvisionRepository.WithTransaction(tx)
+		accountRepoTx := ref.accountRepository.WithTransaction(tx)
+
+		return completeAddTransaction(transactionID, transactionRepoTx, transactionStatusRepoTx, balanceProvisionRepoTx, accountRepoTx)
+	})
 }
 
-func (ref *transactionService) CompensateTransaction(transactionID string) (*entity.Transaction, error) {
+func (ref *transactionService) CompensateTransaction(transactionID string) error {
 
-	return nil, nil
+	return nil
 }
 
 func createTransactionTx(
@@ -150,4 +159,90 @@ func createTransactionTx(
 		return nil, err
 	}
 	return createdTransaction, nil
+}
+
+func completeAddTransaction(
+	transactionID string,
+	transactionRepoTx _interfaces.TransactionRepository,
+	transactionStatusRepoTx _interfaces.TransactionStatusRepository,
+	balanceProvisionRepoTx _interfaces.BalanceProvisionRepository,
+	accountRepoTx _interfaces.AccountRepository,
+) error {
+	// TODO: dar get e lock aqui também, para evitar multiplas açoes de fechamento de transacao concorrentes
+	transaction, err := transactionRepoTx.Get(transactionID)
+	if err != nil {
+		return err
+	}
+	if transaction == nil {
+		return values.NewErrorValidation("transaction not found")
+	}
+
+	transactionStatus, err := transactionStatusRepoTx.FindByTransactionID(transactionID)
+	if err != nil {
+		return err
+	}
+	if transactionStatus == nil {
+		return values.NewErrorValidation("transaction status not found")
+	}
+
+	if transactionStatus.Status != values.TransactionStatusOpen {
+		return values.NewErrorValidation("cannot complete a transaction when not OPEN")
+	}
+
+	balanceProvisions, err := balanceProvisionRepoTx.FindByTransactionID(transactionID)
+	if err != nil {
+		return err
+	}
+
+	balanceProvisionToComplete := balanceProvisions.FindProvisionToComplete()
+	if balanceProvisionToComplete == nil {
+		return values.NewErrorValidation("no provision found to complete")
+	}
+
+	intermediaryAccount, err := accountRepoTx.GetLock(intermediaryAccountID)
+	if err != nil {
+		return err
+	}
+	if intermediaryAccount == nil {
+		return errorIntermediaryAccountNotFound
+	}
+
+	destinationAccount, err := accountRepoTx.GetLock(balanceProvisionToComplete.DestinationAccountID)
+	if err != nil {
+		return err
+	}
+	if destinationAccount == nil {
+		return errorDestinationAccountNotFound
+	}
+
+	intermediaryAccount, err = intermediaryAccount.RemoveFunds(balanceProvisionToComplete.Value)
+	if err != nil {
+		return err
+	}
+	destinationAccount = destinationAccount.AddFunds(balanceProvisionToComplete.Value)
+
+	balanceProvisionToComplete.Status = values.ProvisionStatusClosed
+	transactionStatus.Status = values.TransactionStatusBooked
+
+	_, err = accountRepoTx.Update(*intermediaryAccount)
+	if err != nil {
+		return err
+	}
+
+	_, err = accountRepoTx.Update(*destinationAccount)
+	if err != nil {
+		return err
+	}
+
+	_, err = balanceProvisionRepoTx.Update(*balanceProvisionToComplete)
+	if err != nil {
+		return err
+	}
+
+	_, err = transactionStatusRepoTx.Update(*transactionStatus)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

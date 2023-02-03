@@ -42,6 +42,23 @@ func (ref *balanceProvisionRepository) Get(balanceProvisionID string) (*entity.B
 	return record.ToDomain(), nil
 }
 
+func (ref *balanceProvisionRepository) FindByTransactionID(transactionID string) (entity.BalanceProvisions, error) {
+	var records []model.BalanceProvision
+
+	result := ref.db.Find(&records, "transaction_id = ?", transactionID)
+	if result.Error != nil {
+		return nil, errors.WithStack(result.Error)
+	}
+
+	balanceProvisions := make([]entity.BalanceProvision, len(records))
+	for i := range records {
+		record := records[i]
+		balanceProvisions[i] = *record.ToDomain()
+	}
+
+	return balanceProvisions, nil
+}
+
 func (ref *balanceProvisionRepository) Create(balanceProvision entity.BalanceProvision) (*entity.BalanceProvision, error) {
 	record := model.NewBalanceProvisionFromDomain(balanceProvision)
 	record.TransactionID = uuid.NewString()

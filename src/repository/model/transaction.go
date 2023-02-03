@@ -15,8 +15,8 @@ type Transaction struct {
 	CreatedAt            time.Time
 	UpdatedAt            time.Time
 
-	TransactionStatus TransactionStatus  `gorm:"foreignKey:TransactionID"`
-	BalanceProvisions []BalanceProvision `gorm:"foreignKey:TransactionID"`
+	TransactionStatus TransactionStatus  `gorm:"foreignKey:TransactionID,references:TransactionID"`
+	BalanceProvisions []BalanceProvision `gorm:"foreignKey:TransactionID,references:TransactionID"`
 }
 
 func NewTransactionFromDomain(transaction entity.Transaction) Transaction {
