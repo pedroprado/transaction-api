@@ -1,0 +1,1 @@
+mockery --dir src/core/_interfaces/ --all --output src/core/_mocks
