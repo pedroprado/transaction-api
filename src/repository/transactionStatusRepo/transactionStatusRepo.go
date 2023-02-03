@@ -73,5 +73,4 @@ func (ref *transactionStatusRepository) Update(transactionStatus entity.Transact
 
 func (ref *transactionStatusRepository) WithTransaction(tx *gorm.DB) _interfaces.TransactionStatusRepository {
 	return NewTransactionStatusRepository(tx, ref.errorHandler)
-
 }
