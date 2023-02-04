@@ -1919,3 +1919,807 @@ org.apache.http.conn.HttpHostConnectException: Connect to localhost:8098 [localh
 
 12:50:01.444 [pool-1-thread-1]  INFO  com.intuit.karate.Runner - <<pass>> feature 1 of 1: cases/complete_transaction.feature
 12:50:01.543 [Thread-0]  INFO  com.intuit.karate.debug.DapServer - stop: shutting down
+14:39:41.607 [main]  INFO  com.intuit.karate.Main - Karate version: 0.9.6
+14:39:41.898 [main]  INFO  com.intuit.karate.debug.DapServer - debug server started on port: 42437
+14:39:42.996 [nioEventLoopGroup-3-1]  DEBUG c.i.karate.debug.DapServerHandler - command line: /home/pedroprado/Desktop/Projetos/Meus/transaction-api/tests/integration/cases/complete_transaction.feature:56
+14:39:43.505 [Thread-0]  INFO  com.intuit.karate.Runner - waiting for parallel features to complete ...
+14:39:43.524 [pool-1-thread-1]  INFO  com.intuit.karate - found scenario at line: 56
+14:39:43.776 [ForkJoinPool-1-worker-3]  INFO  com.intuit.karate - scenario called at line: 57 by tag: @CreateTransaction
+14:39:43.974 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+1 > GET http://localhost:8098/snapfi/account/12345
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: localhost:8098
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:39:43.994 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 16.16
+1 < 200
+1 < Content-Length: 176
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Sat, 04 Feb 2023 17:39:43 GMT
+{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":10000009,"created_at":"2023-02-04T12:41:06.778477-03:00","updated_at":"2023-02-04T12:50:01.280509-03:00"}
+
+14:39:44.019 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+2 > POST http://localhost:8098/snapfi/account
+2 > Accept-Encoding: gzip,deflate
+2 > Connection: Keep-Alive
+2 > Content-Length: 54
+2 > Content-Type: application/json; charset=UTF-8
+2 > Host: localhost:8098
+2 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"bank":"11","number":"11","agency":"1","balance":100}
+
+14:39:44.027 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 7.89
+2 < 201
+2 < Content-Length: 202
+2 < Content-Type: application/json; charset=utf-8
+2 < Date: Sat, 04 Feb 2023 17:39:44 GMT
+{"account_id":"24c9e078-0bde-4a42-9235-38a515032ad7","bank":"11","number":"11","agency":"1","balance":100,"created_at":"2023-02-04T14:39:44.021026-03:00","updated_at":"2023-02-04T14:39:44.021026-03:00"}
+
+14:39:44.041 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+3 > POST http://localhost:8098/snapfi/account
+3 > Accept-Encoding: gzip,deflate
+3 > Connection: Keep-Alive
+3 > Content-Length: 54
+3 > Content-Type: application/json; charset=UTF-8
+3 > Host: localhost:8098
+3 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"bank":"22","number":"22","agency":"2","balance":100}
+
+14:39:44.046 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 3.96
+3 < 201
+3 < Content-Length: 202
+3 < Content-Type: application/json; charset=utf-8
+3 < Date: Sat, 04 Feb 2023 17:39:44 GMT
+{"account_id":"03610760-6000-44a3-8792-9bce255fd059","bank":"22","number":"22","agency":"2","balance":100,"created_at":"2023-02-04T14:39:44.042849-03:00","updated_at":"2023-02-04T14:39:44.042849-03:00"}
+
+14:39:44.070 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+4 > POST http://localhost:8098/snapfi/transactions
+4 > Accept-Encoding: gzip,deflate
+4 > Connection: Keep-Alive
+4 > Content-Length: 164
+4 > Content-Type: application/json; charset=UTF-8
+4 > Host: localhost:8098
+4 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"transaction_type":"PIX_OUT","origin_account_id":"24c9e078-0bde-4a42-9235-38a515032ad7","destination_account_id":"03610760-6000-44a3-8792-9bce255fd059","value":10}
+
+14:39:44.082 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 11.36
+4 < 201
+4 < Content-Length: 310
+4 < Content-Type: application/json; charset=utf-8
+4 < Date: Sat, 04 Feb 2023 17:39:44 GMT
+{"transaction_id":"7d742e10-b37e-427f-920f-152ec37befb4","type":"PIX_OUT","origin_account_id":"24c9e078-0bde-4a42-9235-38a515032ad7","destination_account_id":"03610760-6000-44a3-8792-9bce255fd059","value":10,"created_at":"2023-02-04T14:39:44.074245784-03:00","updated_at":"2023-02-04T14:39:44.074245935-03:00"}
+
+14:39:44.094 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+5 > GET http://localhost:8098/snapfi/transaction_status?transaction_id=7d742e10-b37e-427f-920f-152ec37befb4
+5 > Accept-Encoding: gzip,deflate
+5 > Connection: Keep-Alive
+5 > Host: localhost:8098
+5 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:39:44.096 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.66
+5 < 200
+5 < Content-Length: 232
+5 < Content-Type: application/json; charset=utf-8
+5 < Date: Sat, 04 Feb 2023 17:39:44 GMT
+{"transaction_status_id":"a3c9f848-eb72-4f88-98cb-46b6b1982bc9","status":"OPEN","transaction_id":"7d742e10-b37e-427f-920f-152ec37befb4","created_at":"2023-02-04T14:39:44.075045-03:00","updated_at":"2023-02-04T14:39:44.075045-03:00"}
+
+14:39:44.114 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+6 > GET http://localhost:8098/snapfi/balance_provisions?transaction_id=7d742e10-b37e-427f-920f-152ec37befb4
+6 > Accept-Encoding: gzip,deflate
+6 > Connection: Keep-Alive
+6 > Host: localhost:8098
+6 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:39:44.117 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 2.24
+6 < 200
+6 < Content-Length: 372
+6 < Content-Type: application/json; charset=utf-8
+6 < Date: Sat, 04 Feb 2023 17:39:44 GMT
+[{"provision_id":"ea23985a-857d-4df1-b1af-5dcaa6928fed","value":10,"origin_account_id":"24c9e078-0bde-4a42-9235-38a515032ad7","destination_account_id":"03610760-6000-44a3-8792-9bce255fd059","type":"ADD","status":"OPEN","transaction_id":"7d742e10-b37e-427f-920f-152ec37befb4","created_at":"2023-02-04T14:39:44.077969-03:00","updated_at":"2023-02-04T14:39:44.077969-03:00"}]
+
+14:39:44.162 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+7 > GET http://localhost:8098/snapfi/account/24c9e078-0bde-4a42-9235-38a515032ad7
+7 > Accept-Encoding: gzip,deflate
+7 > Connection: Keep-Alive
+7 > Host: localhost:8098
+7 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:39:44.165 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.58
+7 < 200
+7 < Content-Length: 201
+7 < Content-Type: application/json; charset=utf-8
+7 < Date: Sat, 04 Feb 2023 17:39:44 GMT
+{"account_id":"24c9e078-0bde-4a42-9235-38a515032ad7","bank":"11","number":"11","agency":"1","balance":90,"created_at":"2023-02-04T14:39:44.021026-03:00","updated_at":"2023-02-04T14:39:44.076045-03:00"}
+
+14:39:44.174 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+8 > GET http://localhost:8098/snapfi/account/12345
+8 > Accept-Encoding: gzip,deflate
+8 > Connection: Keep-Alive
+8 > Host: localhost:8098
+8 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:39:44.176 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.50
+8 < 200
+8 < Content-Length: 176
+8 < Content-Type: application/json; charset=utf-8
+8 < Date: Sat, 04 Feb 2023 17:39:44 GMT
+{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":10000019,"created_at":"2023-02-04T12:41:06.778477-03:00","updated_at":"2023-02-04T14:39:44.077253-03:00"}
+
+14:39:44.187 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+1 > PATCH http://localhost:8098/snapfi/account
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Content-Length: 34
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: localhost:8098
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"account_id":"12345","balance":0}
+
+14:39:44.189 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.17
+1 < 400
+1 < Content-Length: 31
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Sat, 04 Feb 2023 17:39:44 GMT
+{"error":"Balance is required"}
+
+14:39:44.191 [ForkJoinPool-1-worker-3]  ERROR com.intuit.karate - assertion failed: assert evaluated to false: responseStatus == 200
+14:39:52.739 [nioEventLoopGroup-3-1]  INFO  com.intuit.karate.debug.DapServer - stop: shutting down
+14:39:57.720 [main]  INFO  com.intuit.karate.Main - Karate version: 0.9.6
+14:39:57.980 [main]  INFO  com.intuit.karate.debug.DapServer - debug server started on port: 38873
+14:39:58.366 [nioEventLoopGroup-3-1]  DEBUG c.i.karate.debug.DapServerHandler - command line: /home/pedroprado/Desktop/Projetos/Meus/transaction-api/tests/integration/cases/complete_transaction.feature:56
+14:39:58.836 [Thread-0]  INFO  com.intuit.karate.Runner - waiting for parallel features to complete ...
+14:39:58.854 [pool-1-thread-1]  INFO  com.intuit.karate - found scenario at line: 56
+14:39:59.095 [ForkJoinPool-1-worker-3]  INFO  com.intuit.karate - scenario called at line: 57 by tag: @CreateTransaction
+14:39:59.307 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+1 > GET http://localhost:8098/snapfi/account/12345
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: localhost:8098
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:39:59.328 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 18.44
+1 < 200
+1 < Content-Length: 176
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Sat, 04 Feb 2023 17:39:59 GMT
+{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":10000019,"created_at":"2023-02-04T12:41:06.778477-03:00","updated_at":"2023-02-04T14:39:44.077253-03:00"}
+
+14:39:59.354 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+2 > POST http://localhost:8098/snapfi/account
+2 > Accept-Encoding: gzip,deflate
+2 > Connection: Keep-Alive
+2 > Content-Length: 54
+2 > Content-Type: application/json; charset=UTF-8
+2 > Host: localhost:8098
+2 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"bank":"11","number":"11","agency":"1","balance":100}
+
+14:39:59.362 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 7.54
+2 < 201
+2 < Content-Length: 202
+2 < Content-Type: application/json; charset=utf-8
+2 < Date: Sat, 04 Feb 2023 17:39:59 GMT
+{"account_id":"ef9225d4-383d-42bb-a3c0-148eb6265995","bank":"11","number":"11","agency":"1","balance":100,"created_at":"2023-02-04T14:39:59.356445-03:00","updated_at":"2023-02-04T14:39:59.356445-03:00"}
+
+14:39:59.375 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+3 > POST http://localhost:8098/snapfi/account
+3 > Accept-Encoding: gzip,deflate
+3 > Connection: Keep-Alive
+3 > Content-Length: 54
+3 > Content-Type: application/json; charset=UTF-8
+3 > Host: localhost:8098
+3 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"bank":"22","number":"22","agency":"2","balance":100}
+
+14:39:59.379 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 3.30
+3 < 201
+3 < Content-Length: 202
+3 < Content-Type: application/json; charset=utf-8
+3 < Date: Sat, 04 Feb 2023 17:39:59 GMT
+{"account_id":"80539602-b194-40b2-b390-fd2888be4cd0","bank":"22","number":"22","agency":"2","balance":100,"created_at":"2023-02-04T14:39:59.376929-03:00","updated_at":"2023-02-04T14:39:59.376929-03:00"}
+
+14:39:59.399 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+4 > POST http://localhost:8098/snapfi/transactions
+4 > Accept-Encoding: gzip,deflate
+4 > Connection: Keep-Alive
+4 > Content-Length: 164
+4 > Content-Type: application/json; charset=UTF-8
+4 > Host: localhost:8098
+4 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"transaction_type":"PIX_OUT","origin_account_id":"ef9225d4-383d-42bb-a3c0-148eb6265995","destination_account_id":"80539602-b194-40b2-b390-fd2888be4cd0","value":10}
+
+14:39:59.408 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 7.72
+4 < 201
+4 < Content-Length: 308
+4 < Content-Type: application/json; charset=utf-8
+4 < Date: Sat, 04 Feb 2023 17:39:59 GMT
+{"transaction_id":"303cf9a5-aa54-4eba-8ed7-3296652c808f","type":"PIX_OUT","origin_account_id":"ef9225d4-383d-42bb-a3c0-148eb6265995","destination_account_id":"80539602-b194-40b2-b390-fd2888be4cd0","value":10,"created_at":"2023-02-04T14:39:59.403064397-03:00","updated_at":"2023-02-04T14:39:59.4030645-03:00"}
+
+14:39:59.419 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+5 > GET http://localhost:8098/snapfi/transaction_status?transaction_id=303cf9a5-aa54-4eba-8ed7-3296652c808f
+5 > Accept-Encoding: gzip,deflate
+5 > Connection: Keep-Alive
+5 > Host: localhost:8098
+5 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:39:59.422 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.54
+5 < 200
+5 < Content-Length: 232
+5 < Content-Type: application/json; charset=utf-8
+5 < Date: Sat, 04 Feb 2023 17:39:59 GMT
+{"transaction_status_id":"000a368e-daa6-4f25-8deb-8f65707b8786","status":"OPEN","transaction_id":"303cf9a5-aa54-4eba-8ed7-3296652c808f","created_at":"2023-02-04T14:39:59.403563-03:00","updated_at":"2023-02-04T14:39:59.403563-03:00"}
+
+14:39:59.438 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+6 > GET http://localhost:8098/snapfi/balance_provisions?transaction_id=303cf9a5-aa54-4eba-8ed7-3296652c808f
+6 > Accept-Encoding: gzip,deflate
+6 > Connection: Keep-Alive
+6 > Host: localhost:8098
+6 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:39:59.440 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.47
+6 < 200
+6 < Content-Length: 372
+6 < Content-Type: application/json; charset=utf-8
+6 < Date: Sat, 04 Feb 2023 17:39:59 GMT
+[{"provision_id":"752eb430-7e33-4383-af43-b1c441d24cd1","value":10,"origin_account_id":"ef9225d4-383d-42bb-a3c0-148eb6265995","destination_account_id":"80539602-b194-40b2-b390-fd2888be4cd0","type":"ADD","status":"OPEN","transaction_id":"303cf9a5-aa54-4eba-8ed7-3296652c808f","created_at":"2023-02-04T14:39:59.405323-03:00","updated_at":"2023-02-04T14:39:59.405323-03:00"}]
+
+14:39:59.481 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+7 > GET http://localhost:8098/snapfi/account/ef9225d4-383d-42bb-a3c0-148eb6265995
+7 > Accept-Encoding: gzip,deflate
+7 > Connection: Keep-Alive
+7 > Host: localhost:8098
+7 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:39:59.483 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.52
+7 < 200
+7 < Content-Length: 201
+7 < Content-Type: application/json; charset=utf-8
+7 < Date: Sat, 04 Feb 2023 17:39:59 GMT
+{"account_id":"ef9225d4-383d-42bb-a3c0-148eb6265995","bank":"11","number":"11","agency":"1","balance":90,"created_at":"2023-02-04T14:39:59.356445-03:00","updated_at":"2023-02-04T14:39:59.404155-03:00"}
+
+14:39:59.492 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+8 > GET http://localhost:8098/snapfi/account/12345
+8 > Accept-Encoding: gzip,deflate
+8 > Connection: Keep-Alive
+8 > Host: localhost:8098
+8 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:39:59.494 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.43
+8 < 200
+8 < Content-Length: 176
+8 < Content-Type: application/json; charset=utf-8
+8 < Date: Sat, 04 Feb 2023 17:39:59 GMT
+{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":10000029,"created_at":"2023-02-04T12:41:06.778477-03:00","updated_at":"2023-02-04T14:39:59.404805-03:00"}
+
+14:39:59.505 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+1 > PATCH http://localhost:8098/snapfi/account
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Content-Length: 34
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: localhost:8098
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"account_id":"12345","balance":1}
+
+14:39:59.510 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 4.60
+1 < 204
+1 < Date: Sat, 04 Feb 2023 17:39:59 GMT
+
+14:39:59.512 [ForkJoinPool-1-worker-3]  ERROR com.intuit.karate - assertion failed: assert evaluated to false: responseStatus == 200
+14:40:03.106 [nioEventLoopGroup-3-1]  INFO  com.intuit.karate.debug.DapServer - stop: shutting down
+14:40:16.183 [main]  INFO  com.intuit.karate.Main - Karate version: 0.9.6
+14:40:16.462 [main]  INFO  com.intuit.karate.debug.DapServer - debug server started on port: 40619
+14:40:16.815 [nioEventLoopGroup-3-1]  DEBUG c.i.karate.debug.DapServerHandler - command line: /home/pedroprado/Desktop/Projetos/Meus/transaction-api/tests/integration/cases/complete_transaction.feature:56
+14:40:17.287 [Thread-0]  INFO  com.intuit.karate.Runner - waiting for parallel features to complete ...
+14:40:17.306 [pool-1-thread-1]  INFO  com.intuit.karate - found scenario at line: 56
+14:40:17.529 [ForkJoinPool-1-worker-3]  INFO  com.intuit.karate - scenario called at line: 57 by tag: @CreateTransaction
+14:40:17.722 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+1 > GET http://localhost:8098/snapfi/account/12345
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: localhost:8098
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:40:17.748 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 22.78
+1 < 200
+1 < Content-Length: 169
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Sat, 04 Feb 2023 17:40:17 GMT
+{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":1,"created_at":"2023-02-04T12:41:06.778477-03:00","updated_at":"2023-02-04T14:39:59.507271-03:00"}
+
+14:40:17.782 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+2 > POST http://localhost:8098/snapfi/account
+2 > Accept-Encoding: gzip,deflate
+2 > Connection: Keep-Alive
+2 > Content-Length: 54
+2 > Content-Type: application/json; charset=UTF-8
+2 > Host: localhost:8098
+2 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"bank":"11","number":"11","agency":"1","balance":100}
+
+14:40:17.786 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 4.02
+2 < 201
+2 < Content-Length: 202
+2 < Content-Type: application/json; charset=utf-8
+2 < Date: Sat, 04 Feb 2023 17:40:17 GMT
+{"account_id":"59deaaa6-ebb3-413e-8414-d41d2f60629a","bank":"11","number":"11","agency":"1","balance":100,"created_at":"2023-02-04T14:40:17.784099-03:00","updated_at":"2023-02-04T14:40:17.784099-03:00"}
+
+14:40:17.803 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+3 > POST http://localhost:8098/snapfi/account
+3 > Accept-Encoding: gzip,deflate
+3 > Connection: Keep-Alive
+3 > Content-Length: 54
+3 > Content-Type: application/json; charset=UTF-8
+3 > Host: localhost:8098
+3 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"bank":"22","number":"22","agency":"2","balance":100}
+
+14:40:17.808 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 3.13
+3 < 201
+3 < Content-Length: 202
+3 < Content-Type: application/json; charset=utf-8
+3 < Date: Sat, 04 Feb 2023 17:40:17 GMT
+{"account_id":"cb13bd41-18d3-4969-a53f-4a6c3b6b5afd","bank":"22","number":"22","agency":"2","balance":100,"created_at":"2023-02-04T14:40:17.805578-03:00","updated_at":"2023-02-04T14:40:17.805578-03:00"}
+
+14:40:17.828 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+4 > POST http://localhost:8098/snapfi/transactions
+4 > Accept-Encoding: gzip,deflate
+4 > Connection: Keep-Alive
+4 > Content-Length: 164
+4 > Content-Type: application/json; charset=UTF-8
+4 > Host: localhost:8098
+4 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"transaction_type":"PIX_OUT","origin_account_id":"59deaaa6-ebb3-413e-8414-d41d2f60629a","destination_account_id":"cb13bd41-18d3-4969-a53f-4a6c3b6b5afd","value":10}
+
+14:40:17.835 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 6.25
+4 < 201
+4 < Content-Length: 310
+4 < Content-Type: application/json; charset=utf-8
+4 < Date: Sat, 04 Feb 2023 17:40:17 GMT
+{"transaction_id":"9da3d46c-6e91-4074-8f1c-ec9a41801188","type":"PIX_OUT","origin_account_id":"59deaaa6-ebb3-413e-8414-d41d2f60629a","destination_account_id":"cb13bd41-18d3-4969-a53f-4a6c3b6b5afd","value":10,"created_at":"2023-02-04T14:40:17.830965356-03:00","updated_at":"2023-02-04T14:40:17.830965437-03:00"}
+
+14:40:17.846 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+5 > GET http://localhost:8098/snapfi/transaction_status?transaction_id=9da3d46c-6e91-4074-8f1c-ec9a41801188
+5 > Accept-Encoding: gzip,deflate
+5 > Connection: Keep-Alive
+5 > Host: localhost:8098
+5 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:40:17.848 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.52
+5 < 200
+5 < Content-Length: 232
+5 < Content-Type: application/json; charset=utf-8
+5 < Date: Sat, 04 Feb 2023 17:40:17 GMT
+{"transaction_status_id":"3260d474-8ef7-42d7-a396-8f0c76a04bb2","status":"OPEN","transaction_id":"9da3d46c-6e91-4074-8f1c-ec9a41801188","created_at":"2023-02-04T14:40:17.831409-03:00","updated_at":"2023-02-04T14:40:17.831409-03:00"}
+
+14:40:17.866 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+6 > GET http://localhost:8098/snapfi/balance_provisions?transaction_id=9da3d46c-6e91-4074-8f1c-ec9a41801188
+6 > Accept-Encoding: gzip,deflate
+6 > Connection: Keep-Alive
+6 > Host: localhost:8098
+6 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:40:17.868 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.43
+6 < 200
+6 < Content-Length: 372
+6 < Content-Type: application/json; charset=utf-8
+6 < Date: Sat, 04 Feb 2023 17:40:17 GMT
+[{"provision_id":"5952fbfc-fb5b-49d8-94e2-238343424494","value":10,"origin_account_id":"59deaaa6-ebb3-413e-8414-d41d2f60629a","destination_account_id":"cb13bd41-18d3-4969-a53f-4a6c3b6b5afd","type":"ADD","status":"OPEN","transaction_id":"9da3d46c-6e91-4074-8f1c-ec9a41801188","created_at":"2023-02-04T14:40:17.832972-03:00","updated_at":"2023-02-04T14:40:17.832972-03:00"}]
+
+14:40:17.910 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+7 > GET http://localhost:8098/snapfi/account/59deaaa6-ebb3-413e-8414-d41d2f60629a
+7 > Accept-Encoding: gzip,deflate
+7 > Connection: Keep-Alive
+7 > Host: localhost:8098
+7 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:40:17.912 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.47
+7 < 200
+7 < Content-Length: 201
+7 < Content-Type: application/json; charset=utf-8
+7 < Date: Sat, 04 Feb 2023 17:40:17 GMT
+{"account_id":"59deaaa6-ebb3-413e-8414-d41d2f60629a","bank":"11","number":"11","agency":"1","balance":90,"created_at":"2023-02-04T14:40:17.784099-03:00","updated_at":"2023-02-04T14:40:17.831883-03:00"}
+
+14:40:17.922 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+8 > GET http://localhost:8098/snapfi/account/12345
+8 > Accept-Encoding: gzip,deflate
+8 > Connection: Keep-Alive
+8 > Host: localhost:8098
+8 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:40:17.925 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.77
+8 < 200
+8 < Content-Length: 170
+8 < Content-Type: application/json; charset=utf-8
+8 < Date: Sat, 04 Feb 2023 17:40:17 GMT
+{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":11,"created_at":"2023-02-04T12:41:06.778477-03:00","updated_at":"2023-02-04T14:40:17.832429-03:00"}
+
+14:40:17.936 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+1 > PATCH http://localhost:8098/snapfi/account
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Content-Length: 34
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: localhost:8098
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"account_id":"12345","balance":1}
+
+14:40:17.941 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 3.73
+1 < 204
+1 < Date: Sat, 04 Feb 2023 17:40:17 GMT
+
+14:40:17.960 [ForkJoinPool-1-worker-3]  ERROR com.intuit.karate - assertion failed: assert evaluated to false: response.balance == 1
+14:40:29.802 [nioEventLoopGroup-3-1]  INFO  com.intuit.karate.debug.DapServer - stop: shutting down
+14:40:33.931 [main]  INFO  com.intuit.karate.Main - Karate version: 0.9.6
+14:40:34.225 [main]  INFO  com.intuit.karate.debug.DapServer - debug server started on port: 45471
+14:40:34.582 [nioEventLoopGroup-3-1]  DEBUG c.i.karate.debug.DapServerHandler - command line: /home/pedroprado/Desktop/Projetos/Meus/transaction-api/tests/integration/cases/complete_transaction.feature:56
+14:40:35.081 [Thread-0]  INFO  com.intuit.karate.Runner - waiting for parallel features to complete ...
+14:40:35.101 [pool-1-thread-1]  INFO  com.intuit.karate - found scenario at line: 56
+14:40:35.346 [ForkJoinPool-1-worker-3]  INFO  com.intuit.karate - scenario called at line: 57 by tag: @CreateTransaction
+14:40:35.533 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+1 > GET http://localhost:8098/snapfi/account/12345
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: localhost:8098
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:40:35.550 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 15.06
+1 < 200
+1 < Content-Length: 169
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Sat, 04 Feb 2023 17:40:35 GMT
+{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":1,"created_at":"2023-02-04T12:41:06.778477-03:00","updated_at":"2023-02-04T14:40:17.938363-03:00"}
+
+14:40:35.573 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+2 > POST http://localhost:8098/snapfi/account
+2 > Accept-Encoding: gzip,deflate
+2 > Connection: Keep-Alive
+2 > Content-Length: 54
+2 > Content-Type: application/json; charset=UTF-8
+2 > Host: localhost:8098
+2 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"bank":"11","number":"11","agency":"1","balance":100}
+
+14:40:35.581 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 7.45
+2 < 201
+2 < Content-Length: 202
+2 < Content-Type: application/json; charset=utf-8
+2 < Date: Sat, 04 Feb 2023 17:40:35 GMT
+{"account_id":"bdd5b43d-4ad7-43bf-9696-be33d54621b6","bank":"11","number":"11","agency":"1","balance":100,"created_at":"2023-02-04T14:40:35.575101-03:00","updated_at":"2023-02-04T14:40:35.575101-03:00"}
+
+14:40:35.594 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+3 > POST http://localhost:8098/snapfi/account
+3 > Accept-Encoding: gzip,deflate
+3 > Connection: Keep-Alive
+3 > Content-Length: 54
+3 > Content-Type: application/json; charset=UTF-8
+3 > Host: localhost:8098
+3 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"bank":"22","number":"22","agency":"2","balance":100}
+
+14:40:35.598 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 3.31
+3 < 201
+3 < Content-Length: 202
+3 < Content-Type: application/json; charset=utf-8
+3 < Date: Sat, 04 Feb 2023 17:40:35 GMT
+{"account_id":"4c10b82d-b874-4407-98e6-67d998b0455e","bank":"22","number":"22","agency":"2","balance":100,"created_at":"2023-02-04T14:40:35.595692-03:00","updated_at":"2023-02-04T14:40:35.595692-03:00"}
+
+14:40:35.617 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+4 > POST http://localhost:8098/snapfi/transactions
+4 > Accept-Encoding: gzip,deflate
+4 > Connection: Keep-Alive
+4 > Content-Length: 164
+4 > Content-Type: application/json; charset=UTF-8
+4 > Host: localhost:8098
+4 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"transaction_type":"PIX_OUT","origin_account_id":"bdd5b43d-4ad7-43bf-9696-be33d54621b6","destination_account_id":"4c10b82d-b874-4407-98e6-67d998b0455e","value":10}
+
+14:40:35.625 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 6.74
+4 < 201
+4 < Content-Length: 310
+4 < Content-Type: application/json; charset=utf-8
+4 < Date: Sat, 04 Feb 2023 17:40:35 GMT
+{"transaction_id":"0d7fea6a-1634-4053-8b4c-d7e351cca9c8","type":"PIX_OUT","origin_account_id":"bdd5b43d-4ad7-43bf-9696-be33d54621b6","destination_account_id":"4c10b82d-b874-4407-98e6-67d998b0455e","value":10,"created_at":"2023-02-04T14:40:35.620066097-03:00","updated_at":"2023-02-04T14:40:35.620066183-03:00"}
+
+14:40:35.635 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+5 > GET http://localhost:8098/snapfi/transaction_status?transaction_id=0d7fea6a-1634-4053-8b4c-d7e351cca9c8
+5 > Accept-Encoding: gzip,deflate
+5 > Connection: Keep-Alive
+5 > Host: localhost:8098
+5 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:40:35.637 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.41
+5 < 200
+5 < Content-Length: 232
+5 < Content-Type: application/json; charset=utf-8
+5 < Date: Sat, 04 Feb 2023 17:40:35 GMT
+{"transaction_status_id":"7214776f-7485-4595-a476-7537322c2d1f","status":"OPEN","transaction_id":"0d7fea6a-1634-4053-8b4c-d7e351cca9c8","created_at":"2023-02-04T14:40:35.620483-03:00","updated_at":"2023-02-04T14:40:35.620484-03:00"}
+
+14:40:35.655 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+6 > GET http://localhost:8098/snapfi/balance_provisions?transaction_id=0d7fea6a-1634-4053-8b4c-d7e351cca9c8
+6 > Accept-Encoding: gzip,deflate
+6 > Connection: Keep-Alive
+6 > Host: localhost:8098
+6 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:40:35.657 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.80
+6 < 200
+6 < Content-Length: 372
+6 < Content-Type: application/json; charset=utf-8
+6 < Date: Sat, 04 Feb 2023 17:40:35 GMT
+[{"provision_id":"e412bcf1-520b-4481-a9f9-9e326ae14169","value":10,"origin_account_id":"bdd5b43d-4ad7-43bf-9696-be33d54621b6","destination_account_id":"4c10b82d-b874-4407-98e6-67d998b0455e","type":"ADD","status":"OPEN","transaction_id":"0d7fea6a-1634-4053-8b4c-d7e351cca9c8","created_at":"2023-02-04T14:40:35.621843-03:00","updated_at":"2023-02-04T14:40:35.621843-03:00"}]
+
+14:40:35.697 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+7 > GET http://localhost:8098/snapfi/account/bdd5b43d-4ad7-43bf-9696-be33d54621b6
+7 > Accept-Encoding: gzip,deflate
+7 > Connection: Keep-Alive
+7 > Host: localhost:8098
+7 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:40:35.699 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.33
+7 < 200
+7 < Content-Length: 201
+7 < Content-Type: application/json; charset=utf-8
+7 < Date: Sat, 04 Feb 2023 17:40:35 GMT
+{"account_id":"bdd5b43d-4ad7-43bf-9696-be33d54621b6","bank":"11","number":"11","agency":"1","balance":90,"created_at":"2023-02-04T14:40:35.575101-03:00","updated_at":"2023-02-04T14:40:35.620933-03:00"}
+
+14:40:35.708 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+8 > GET http://localhost:8098/snapfi/account/12345
+8 > Accept-Encoding: gzip,deflate
+8 > Connection: Keep-Alive
+8 > Host: localhost:8098
+8 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:40:35.711 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.42
+8 < 200
+8 < Content-Length: 170
+8 < Content-Type: application/json; charset=utf-8
+8 < Date: Sat, 04 Feb 2023 17:40:35 GMT
+{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":11,"created_at":"2023-02-04T12:41:06.778477-03:00","updated_at":"2023-02-04T14:40:35.621363-03:00"}
+
+14:40:35.721 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+1 > PATCH http://localhost:8098/snapfi/account
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Content-Length: 34
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: localhost:8098
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"account_id":"12345","balance":1}
+
+14:40:35.726 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 4.59
+1 < 204
+1 < Date: Sat, 04 Feb 2023 17:40:35 GMT
+
+14:40:35.738 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+2 > POST http://localhost:8098/snapfi/transaction/0d7fea6a-1634-4053-8b4c-d7e351cca9c8/complete
+2 > Accept-Encoding: gzip,deflate
+2 > Connection: Keep-Alive
+2 > Content-Length: 2
+2 > Content-Type: application/json; charset=UTF-8
+2 > Host: localhost:8098
+2 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{}
+
+14:40:35.748 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 9.13
+2 < 202
+2 < Content-Length: 0
+2 < Date: Sat, 04 Feb 2023 17:40:35 GMT
+
+14:40:35.757 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+3 > GET http://localhost:8098/snapfi/transaction_status?transaction_id=0d7fea6a-1634-4053-8b4c-d7e351cca9c8
+3 > Accept-Encoding: gzip,deflate
+3 > Connection: Keep-Alive
+3 > Host: localhost:8098
+3 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:40:35.759 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.60
+3 < 200
+3 < Content-Length: 233
+3 < Content-Type: application/json; charset=utf-8
+3 < Date: Sat, 04 Feb 2023 17:40:35 GMT
+{"transaction_status_id":"7214776f-7485-4595-a476-7537322c2d1f","status":"FAILED","transaction_id":"0d7fea6a-1634-4053-8b4c-d7e351cca9c8","created_at":"2023-02-04T14:40:35.620483-03:00","updated_at":"2023-02-04T14:40:35.74501-03:00"}
+
+14:40:35.770 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+4 > GET http://localhost:8098/snapfi/balance_provisions?transaction_id=0d7fea6a-1634-4053-8b4c-d7e351cca9c8
+4 > Accept-Encoding: gzip,deflate
+4 > Connection: Keep-Alive
+4 > Host: localhost:8098
+4 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:40:35.772 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.56
+4 < 200
+4 < Content-Length: 745
+4 < Content-Type: application/json; charset=utf-8
+4 < Date: Sat, 04 Feb 2023 17:40:35 GMT
+[{"provision_id":"e412bcf1-520b-4481-a9f9-9e326ae14169","value":10,"origin_account_id":"bdd5b43d-4ad7-43bf-9696-be33d54621b6","destination_account_id":"4c10b82d-b874-4407-98e6-67d998b0455e","type":"ADD","status":"CLOSED","transaction_id":"0d7fea6a-1634-4053-8b4c-d7e351cca9c8","created_at":"2023-02-04T14:40:35.621843-03:00","updated_at":"2023-02-04T14:40:35.74431-03:00"},{"provision_id":"0ef4ee47-4abb-49e0-beb9-3c295e70e4e5","value":10,"origin_account_id":"bdd5b43d-4ad7-43bf-9696-be33d54621b6","destination_account_id":"4c10b82d-b874-4407-98e6-67d998b0455e","type":"VOID","status":"OPEN","transaction_id":"0d7fea6a-1634-4053-8b4c-d7e351cca9c8","created_at":"2023-02-04T14:40:35.745528-03:00","updated_at":"2023-02-04T14:40:35.745528-03:00"}]
+
+14:40:35.799 [ForkJoinPool-1-worker-3]  ERROR com.intuit.karate - assertion failed: assert evaluated to false: response[0].type == "VOID"
+14:41:09.801 [nioEventLoopGroup-3-1]  INFO  com.intuit.karate.debug.DapServer - stop: shutting down
+14:41:17.533 [main]  INFO  com.intuit.karate.Main - Karate version: 0.9.6
+14:41:17.875 [main]  INFO  com.intuit.karate.debug.DapServer - debug server started on port: 44591
+14:41:18.180 [nioEventLoopGroup-3-1]  DEBUG c.i.karate.debug.DapServerHandler - command line: /home/pedroprado/Desktop/Projetos/Meus/transaction-api/tests/integration/cases/complete_transaction.feature:56
+14:41:18.654 [Thread-0]  INFO  com.intuit.karate.Runner - waiting for parallel features to complete ...
+14:41:18.672 [pool-1-thread-1]  INFO  com.intuit.karate - found scenario at line: 56
+14:41:18.901 [ForkJoinPool-1-worker-3]  INFO  com.intuit.karate - scenario called at line: 57 by tag: @CreateTransaction
+14:41:19.099 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+1 > GET http://localhost:8098/snapfi/account/12345
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: localhost:8098
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:41:19.121 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 18.81
+1 < 200
+1 < Content-Length: 169
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Sat, 04 Feb 2023 17:41:19 GMT
+{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":1,"created_at":"2023-02-04T12:41:06.778477-03:00","updated_at":"2023-02-04T14:40:35.722827-03:00"}
+
+14:41:19.145 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+2 > POST http://localhost:8098/snapfi/account
+2 > Accept-Encoding: gzip,deflate
+2 > Connection: Keep-Alive
+2 > Content-Length: 54
+2 > Content-Type: application/json; charset=UTF-8
+2 > Host: localhost:8098
+2 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"bank":"11","number":"11","agency":"1","balance":100}
+
+14:41:19.154 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 7.72
+2 < 201
+2 < Content-Length: 202
+2 < Content-Type: application/json; charset=utf-8
+2 < Date: Sat, 04 Feb 2023 17:41:19 GMT
+{"account_id":"03c7c2eb-d177-43c3-ab21-c1e55a2ddf0d","bank":"11","number":"11","agency":"1","balance":100,"created_at":"2023-02-04T14:41:19.147917-03:00","updated_at":"2023-02-04T14:41:19.147917-03:00"}
+
+14:41:19.167 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+3 > POST http://localhost:8098/snapfi/account
+3 > Accept-Encoding: gzip,deflate
+3 > Connection: Keep-Alive
+3 > Content-Length: 54
+3 > Content-Type: application/json; charset=UTF-8
+3 > Host: localhost:8098
+3 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"bank":"22","number":"22","agency":"2","balance":100}
+
+14:41:19.172 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 3.78
+3 < 201
+3 < Content-Length: 202
+3 < Content-Type: application/json; charset=utf-8
+3 < Date: Sat, 04 Feb 2023 17:41:19 GMT
+{"account_id":"5ab74050-39b9-4cc0-815b-db297d3467de","bank":"22","number":"22","agency":"2","balance":100,"created_at":"2023-02-04T14:41:19.169068-03:00","updated_at":"2023-02-04T14:41:19.169068-03:00"}
+
+14:41:19.193 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+4 > POST http://localhost:8098/snapfi/transactions
+4 > Accept-Encoding: gzip,deflate
+4 > Connection: Keep-Alive
+4 > Content-Length: 164
+4 > Content-Type: application/json; charset=UTF-8
+4 > Host: localhost:8098
+4 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"transaction_type":"PIX_OUT","origin_account_id":"03c7c2eb-d177-43c3-ab21-c1e55a2ddf0d","destination_account_id":"5ab74050-39b9-4cc0-815b-db297d3467de","value":10}
+
+14:41:19.202 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 8.31
+4 < 201
+4 < Content-Length: 310
+4 < Content-Type: application/json; charset=utf-8
+4 < Date: Sat, 04 Feb 2023 17:41:19 GMT
+{"transaction_id":"f4b632f0-4357-4be3-bd1b-b472a6fd787d","type":"PIX_OUT","origin_account_id":"03c7c2eb-d177-43c3-ab21-c1e55a2ddf0d","destination_account_id":"5ab74050-39b9-4cc0-815b-db297d3467de","value":10,"created_at":"2023-02-04T14:41:19.195741603-03:00","updated_at":"2023-02-04T14:41:19.195741685-03:00"}
+
+14:41:19.212 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+5 > GET http://localhost:8098/snapfi/transaction_status?transaction_id=f4b632f0-4357-4be3-bd1b-b472a6fd787d
+5 > Accept-Encoding: gzip,deflate
+5 > Connection: Keep-Alive
+5 > Host: localhost:8098
+5 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:41:19.214 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.66
+5 < 200
+5 < Content-Length: 231
+5 < Content-Type: application/json; charset=utf-8
+5 < Date: Sat, 04 Feb 2023 17:41:19 GMT
+{"transaction_status_id":"25ca6d0c-186e-419b-bfb3-ca8af62b4e6d","status":"OPEN","transaction_id":"f4b632f0-4357-4be3-bd1b-b472a6fd787d","created_at":"2023-02-04T14:41:19.196279-03:00","updated_at":"2023-02-04T14:41:19.19628-03:00"}
+
+14:41:19.231 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+6 > GET http://localhost:8098/snapfi/balance_provisions?transaction_id=f4b632f0-4357-4be3-bd1b-b472a6fd787d
+6 > Accept-Encoding: gzip,deflate
+6 > Connection: Keep-Alive
+6 > Host: localhost:8098
+6 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:41:19.233 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.43
+6 < 200
+6 < Content-Length: 372
+6 < Content-Type: application/json; charset=utf-8
+6 < Date: Sat, 04 Feb 2023 17:41:19 GMT
+[{"provision_id":"48955108-97f6-4d3f-9b12-4a25880e1905","value":10,"origin_account_id":"03c7c2eb-d177-43c3-ab21-c1e55a2ddf0d","destination_account_id":"5ab74050-39b9-4cc0-815b-db297d3467de","type":"ADD","status":"OPEN","transaction_id":"f4b632f0-4357-4be3-bd1b-b472a6fd787d","created_at":"2023-02-04T14:41:19.198686-03:00","updated_at":"2023-02-04T14:41:19.198686-03:00"}]
+
+14:41:19.274 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+7 > GET http://localhost:8098/snapfi/account/03c7c2eb-d177-43c3-ab21-c1e55a2ddf0d
+7 > Accept-Encoding: gzip,deflate
+7 > Connection: Keep-Alive
+7 > Host: localhost:8098
+7 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:41:19.276 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.31
+7 < 200
+7 < Content-Length: 201
+7 < Content-Type: application/json; charset=utf-8
+7 < Date: Sat, 04 Feb 2023 17:41:19 GMT
+{"account_id":"03c7c2eb-d177-43c3-ab21-c1e55a2ddf0d","bank":"11","number":"11","agency":"1","balance":90,"created_at":"2023-02-04T14:41:19.147917-03:00","updated_at":"2023-02-04T14:41:19.196844-03:00"}
+
+14:41:19.285 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+8 > GET http://localhost:8098/snapfi/account/12345
+8 > Accept-Encoding: gzip,deflate
+8 > Connection: Keep-Alive
+8 > Host: localhost:8098
+8 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:41:19.287 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.48
+8 < 200
+8 < Content-Length: 170
+8 < Content-Type: application/json; charset=utf-8
+8 < Date: Sat, 04 Feb 2023 17:41:19 GMT
+{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":11,"created_at":"2023-02-04T12:41:06.778477-03:00","updated_at":"2023-02-04T14:41:19.197937-03:00"}
+
+14:41:19.297 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+1 > PATCH http://localhost:8098/snapfi/account
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Content-Length: 34
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: localhost:8098
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{"account_id":"12345","balance":1}
+
+14:41:19.302 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 4.05
+1 < 204
+1 < Date: Sat, 04 Feb 2023 17:41:19 GMT
+
+14:41:19.315 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+2 > POST http://localhost:8098/snapfi/transaction/f4b632f0-4357-4be3-bd1b-b472a6fd787d/complete
+2 > Accept-Encoding: gzip,deflate
+2 > Connection: Keep-Alive
+2 > Content-Length: 2
+2 > Content-Type: application/json; charset=UTF-8
+2 > Host: localhost:8098
+2 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+{}
+
+14:41:19.323 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 7.52
+2 < 202
+2 < Content-Length: 0
+2 < Date: Sat, 04 Feb 2023 17:41:19 GMT
+
+14:41:19.330 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+3 > GET http://localhost:8098/snapfi/transaction_status?transaction_id=f4b632f0-4357-4be3-bd1b-b472a6fd787d
+3 > Accept-Encoding: gzip,deflate
+3 > Connection: Keep-Alive
+3 > Host: localhost:8098
+3 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:41:19.332 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.35
+3 < 200
+3 < Content-Length: 234
+3 < Content-Type: application/json; charset=utf-8
+3 < Date: Sat, 04 Feb 2023 17:41:19 GMT
+{"transaction_status_id":"25ca6d0c-186e-419b-bfb3-ca8af62b4e6d","status":"FAILED","transaction_id":"f4b632f0-4357-4be3-bd1b-b472a6fd787d","created_at":"2023-02-04T14:41:19.196279-03:00","updated_at":"2023-02-04T14:41:19.320597-03:00"}
+
+14:41:19.345 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - request:
+4 > GET http://localhost:8098/snapfi/balance_provisions?transaction_id=f4b632f0-4357-4be3-bd1b-b472a6fd787d
+4 > Accept-Encoding: gzip,deflate
+4 > Connection: Keep-Alive
+4 > Host: localhost:8098
+4 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
+
+14:41:19.348 [ForkJoinPool-1-worker-3]  DEBUG com.intuit.karate - response time in milliseconds: 1.88
+4 < 200
+4 < Content-Length: 746
+4 < Content-Type: application/json; charset=utf-8
+4 < Date: Sat, 04 Feb 2023 17:41:19 GMT
+[{"provision_id":"48955108-97f6-4d3f-9b12-4a25880e1905","value":10,"origin_account_id":"03c7c2eb-d177-43c3-ab21-c1e55a2ddf0d","destination_account_id":"5ab74050-39b9-4cc0-815b-db297d3467de","type":"ADD","status":"CLOSED","transaction_id":"f4b632f0-4357-4be3-bd1b-b472a6fd787d","created_at":"2023-02-04T14:41:19.198686-03:00","updated_at":"2023-02-04T14:41:19.320146-03:00"},{"provision_id":"6120ae33-2b46-452b-97da-6ee9ef74d052","value":10,"origin_account_id":"03c7c2eb-d177-43c3-ab21-c1e55a2ddf0d","destination_account_id":"5ab74050-39b9-4cc0-815b-db297d3467de","type":"VOID","status":"OPEN","transaction_id":"f4b632f0-4357-4be3-bd1b-b472a6fd787d","created_at":"2023-02-04T14:41:19.320991-03:00","updated_at":"2023-02-04T14:41:19.320991-03:00"}]
+
+14:41:19.450 [pool-1-thread-1]  INFO  com.intuit.karate.Runner - <<pass>> feature 1 of 1: cases/complete_transaction.feature
+14:41:19.531 [Thread-0]  INFO  com.intuit.karate.debug.DapServer - stop: shutting down

@@ -23,3 +23,8 @@ func (request CreateAccountRequest) ToDomain() entity.Account {
 		Balance: request.Balance,
 	}
 }
+
+type PatchAccountRequest struct {
+	AccountID string  `json:"account_id" binding:"required"`
+	Balance   float64 `json:"balance" binding:"required"`
+}

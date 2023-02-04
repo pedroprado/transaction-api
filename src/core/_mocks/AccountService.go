@@ -58,6 +58,20 @@ func (_m *AccountService) Get(accountID string) (*entity.Account, error) {
 	return r0, r1
 }
 
+// Patch provides a mock function with given fields: account
+func (_m *AccountService) Patch(account entity.Account) error {
+	ret := _m.Called(account)
+
+	var r0 error
+	if rf, ok := ret.Get(0).(func(entity.Account) error); ok {
+		r0 = rf(account)
+	} else {
+		r0 = ret.Error(0)
+	}
+
+	return r0
+}
+
 type mockConstructorTestingTNewAccountService interface {
 	mock.TestingT
 	Cleanup(func())

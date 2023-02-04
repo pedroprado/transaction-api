@@ -27,6 +27,7 @@ func RegisterTransactionApi(ginRouterGroup *gin.RouterGroup, transactionService 
 // @Description Create a Transaction
 // @Tags Transaction
 // @Produce json
+// @Param transaction body CreateTransactionRequest true "Body"
 // @Success 201 {object} responses.Transaction
 // @Failure 400 {object} rest.ErrorResponse
 // @Failure 500 {object} rest.ErrorResponse

@@ -13,7 +13,7 @@
     <div id="visualization"></div>
     <script>
 var groups = new vis.DataSet([{"id":1,"content":"ForkJoinPool-1-worker-3"}]);
-var items = new vis.DataSet([{"id":1,"group":1,"content":"complete_transaction[1:7]","start":772,"end":1325,"title":"complete_transaction[1:7] 21:00:00.772-21:00:01.325 should complete transaction"}]);
+var items = new vis.DataSet([{"id":1,"group":1,"content":"complete_transaction[2:56]","start":689,"end":1197,"title":"complete_transaction[2:56] 21:00:00.689-21:00:01.197 should generate compensation when failed completing transaction when intermediary account has no funds"}]);
 var container = document.getElementById('visualization');
 var timeline = new vis.Timeline(container);
 timeline.setOptions({ groupOrder: 'content' });

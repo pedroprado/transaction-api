@@ -20,3 +20,9 @@ func (ref *accountService) Get(accountID string) (*entity.Account, error) {
 func (ref *accountService) Create(account entity.Account) (*entity.Account, error) {
 	return ref.accountRepository.Create(account)
 }
+
+func (ref *accountService) Patch(account entity.Account) error {
+	_, err := ref.accountRepository.Update(account)
+
+	return err
+}

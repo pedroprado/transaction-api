@@ -9,6 +9,8 @@ import (
 	"pedroprado.transaction.api/src/core/useCases/transaction"
 	"pedroprado.transaction.api/src/core/useCases/transaction/compensate"
 	"pedroprado.transaction.api/src/core/useCases/transaction/complete"
+	"pedroprado.transaction.api/src/core/useCases/transaction/complete/completeTx"
+	"pedroprado.transaction.api/src/core/useCases/transaction/complete/generateCompensationTx"
 	"pedroprado.transaction.api/src/core/useCases/transaction/create"
 	"pedroprado.transaction.api/src/core/useCases/transactionStatus"
 	"pedroprado.transaction.api/src/infra"
@@ -53,7 +55,8 @@ func main() {
 	createTransactionService := create.NewCreateTransactionService(transactionRepository,
 		transactionStatusRepository, accountRepository, balanceProvisionRepository, db)
 	completeTransactionService := complete.NewCompleteTransactionService(transactionRepository,
-		transactionStatusRepository, accountRepository, balanceProvisionRepository, db)
+		transactionStatusRepository, accountRepository, balanceProvisionRepository, db,
+		completeTx.NewCompleteTransactionTxService(), generateCompensationTx.NewGenerateCompensationTxService())
 	compensateTransactionService := compensate.NewCompensateTransactionService(transactionRepository,
 		transactionStatusRepository, accountRepository, balanceProvisionRepository, db)
 	transactionService := transaction.NewTransactionService(transactionRepository,

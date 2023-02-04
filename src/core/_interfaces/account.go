@@ -8,6 +8,7 @@ import (
 type AccountService interface {
 	Get(accountID string) (*entity.Account, error)
 	Create(account entity.Account) (*entity.Account, error)
+	Patch(account entity.Account) error
 }
 
 type AccountRepository interface {

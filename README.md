@@ -66,10 +66,16 @@ Second, run the application (using the .env file for environment variables). Run
     * Recreate Scenario 1
     * Complete the transaction using the complete transaction api (POST /transaction/{transaction_id}/complete)
     * Verify the transaction status is BOOKED using the api (GET /transaction_status&transaction_id={transaction_id}) 
-    * Verify tue balanceProvision was CLOSED the api (GET /balance_provisions&transaction_id={transaction_id})
+    * Verify the balanceProvision was CLOSED the api (GET /balance_provisions&transaction_id={transaction_id})
     * Verify the balance was moved from intermediary account to destination account, using api (GET /account/{account_id})
 
 3. Failure Completing Transaction
+   * Recreate Scenario 1
+   * Remove funds from intermediary account using the patch account api (PATCH /account)
+   * Complete the transaction using the complete transaction api (POST /transaction/{transaction_id}/complete)
+   * Verify that the transaction status is set to FAILED using the api (GET /transaction_status&transaction_id={transaction_id})
+   * Verify that the balanceProvision was of type ADD is set to CLOSED the api (GET /balance_provisions&transaction_id={transaction_id})
+   * Verify that a new balanceProvision was of type VOID in OPEN status was created, using the api (GET /balance_provisions&transaction_id={transaction_id})
 
 4. Compensate a Failed Transaction
 

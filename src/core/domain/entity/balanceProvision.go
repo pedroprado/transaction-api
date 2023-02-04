@@ -19,11 +19,11 @@ type BalanceProvision struct {
 
 type BalanceProvisions []BalanceProvision
 
-func (provisions BalanceProvisions) FindProvisionToComplete() *BalanceProvision {
+func (provisions BalanceProvisions) FindProvision(provisionType values.ProvisionType, provisionStatus values.ProvisionStatus) *BalanceProvision {
 	for i := range provisions {
 		provision := provisions[i]
-		if provision.Type == values.ProvisionTypeAdd &&
-			provision.Status == values.ProvisionStatusOpen {
+		if provision.Type == provisionType &&
+			provision.Status == provisionStatus {
 			return &provision
 		}
 	}

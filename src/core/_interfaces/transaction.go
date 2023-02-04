@@ -24,6 +24,24 @@ type CompensateTransactionService interface {
 	Compensate(transactionID string) error
 }
 
+type CompleteTransactionTxService interface {
+	Complete(
+		transactionID string,
+		transactionRepoTx TransactionRepository,
+		transactionStatusRepoTx TransactionStatusRepository,
+		balanceProvisionRepoTx BalanceProvisionRepository,
+		accountRepoTx AccountRepository,
+	) error
+}
+
+type GenerateCompensationTxService interface {
+	Generate(
+		transactionID string,
+		transactionStatusRepoTx TransactionStatusRepository,
+		balanceProvisionRepoTx BalanceProvisionRepository,
+	) error
+}
+
 type TransactionRepository interface {
 	Get(transactionID string) (*entity.Transaction, error)
 	GetLock(transactionID string) (*entity.Transaction, error)

@@ -39,3 +39,17 @@ func TestCreate(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Equal(t, expected, received)
 }
+
+func TestPatch(t *testing.T) {
+	accountRepository := &mocks.AccountRepository{}
+	service := NewAccountService(accountRepository)
+
+	account := entity.Account{AccountID: uuid.NewString()}
+	updated := &entity.Account{AccountID: uuid.NewString()}
+
+	accountRepository.On("Update", account).Return(updated, nil)
+
+	err := service.Patch(account)
+
+	assert.Nil(t, err)
+}
