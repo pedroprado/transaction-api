@@ -26,4 +26,6 @@ COPY --from=builder /app/src/transacion-api .
 
 COPY --from=builder /app/src/docs .
 
+EXPOSE 8098
+
 CMD ["./transacion-api"]

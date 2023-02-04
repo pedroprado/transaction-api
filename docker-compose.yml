@@ -1,8 +1,15 @@
 version: "3"
 
 services:
+  apis:
+    image: apis:local
+    restart: "always"
+    env_file:
+      - docker-compose.env
+    ports:
+      - "8098:8098"
 
-  postgres:
+  postgres_db:
     image: postgres
     environment:
       POSTGRES_DB: "teste"

@@ -51,7 +51,9 @@ Thus, the tests should cover all the behaviors of the whole application and the 
 
 First, set up the docker environment: in the root director run the command **(sudo) sh compose.sh**
 
-Second, run the application (using the .env file for environment variables). Run with **go run src/main.go** or using you preferred IDE.
+Second, run the application (using the .env file for environment variables):
+ * Run with **go run src/main.go** or using you preferred IDE.
+ * Run with docker using the command **(sudo) sh run.sh** in the root directory
 
 #### Testing scenarios manually using Postman:
 

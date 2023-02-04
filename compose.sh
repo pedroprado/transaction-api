@@ -1,2 +1,2 @@
 docker-compose down
-docker-compose up -d --force-recreate postgres
+docker-compose up -d --force-recreate postgres_db
