@@ -7,9 +7,21 @@ import (
 
 type TransactionService interface {
 	Get(transactionID string) (*entity.Transaction, error)
-	CreateTransaction(transaction entity.Transaction) (*entity.Transaction, error)
-	CompleteTransaction(transactionID string) error
-	CompensateTransaction(transactionID string) error
+	CreateTransactionService
+	CompleteTransactionService
+	CompensateTransactionService
+}
+
+type CreateTransactionService interface {
+	Create(transaction entity.Transaction) (*entity.Transaction, error)
+}
+
+type CompleteTransactionService interface {
+	Complete(transactionID string) error
+}
+
+type CompensateTransactionService interface {
+	Compensate(transactionID string) error
 }
 
 type TransactionRepository interface {

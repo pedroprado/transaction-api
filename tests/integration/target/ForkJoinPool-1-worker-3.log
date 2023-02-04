@@ -1,18 +1,18 @@
-18:23:27.929 request:
+12:41:33.781 request:
 1 > GET http://localhost:8098/snapfi/account/12345
 1 > Accept-Encoding: gzip,deflate
 1 > Connection: Keep-Alive
 1 > Host: localhost:8098
 1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
 
-18:23:27.952 response time in milliseconds: 20.11
+12:41:33.801 response time in milliseconds: 16.85
 1 < 200
 1 < Content-Length: 176
 1 < Content-Type: application/json; charset=utf-8
-1 < Date: Fri, 03 Feb 2023 21:23:27 GMT
-{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":10000029,"created_at":"2023-02-03T16:39:31.078441-03:00","updated_at":"2023-02-03T17:56:43.945698-03:00"}
+1 < Date: Sat, 04 Feb 2023 15:41:33 GMT
+{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":10000009,"created_at":"2023-02-04T12:41:06.778477-03:00","updated_at":"2023-02-04T12:41:12.298014-03:00"}
 
-18:23:27.981 request:
+12:41:33.832 request:
 2 > POST http://localhost:8098/snapfi/account
 2 > Accept-Encoding: gzip,deflate
 2 > Connection: Keep-Alive
@@ -22,14 +22,14 @@
 2 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
 {"bank":"11","number":"11","agency":"1","balance":100}
 
-18:23:27.987 response time in milliseconds: 4.93
+12:41:33.841 response time in milliseconds: 7.65
 2 < 201
 2 < Content-Length: 202
 2 < Content-Type: application/json; charset=utf-8
-2 < Date: Fri, 03 Feb 2023 21:23:27 GMT
-{"account_id":"bb34c8d6-beca-4724-898a-199c93b88594","bank":"11","number":"11","agency":"1","balance":100,"created_at":"2023-02-03T18:23:27.983238-03:00","updated_at":"2023-02-03T18:23:27.983238-03:00"}
+2 < Date: Sat, 04 Feb 2023 15:41:33 GMT
+{"account_id":"d7b76338-c7b4-4b20-b765-940cd4f58a40","bank":"11","number":"11","agency":"1","balance":100,"created_at":"2023-02-04T12:41:33.834076-03:00","updated_at":"2023-02-04T12:41:33.834076-03:00"}
 
-18:23:28.002 request:
+12:41:33.857 request:
 3 > POST http://localhost:8098/snapfi/account
 3 > Accept-Encoding: gzip,deflate
 3 > Connection: Keep-Alive
@@ -39,14 +39,14 @@
 3 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
 {"bank":"22","number":"22","agency":"2","balance":100}
 
-18:23:28.007 response time in milliseconds: 3.99
+12:41:33.862 response time in milliseconds: 3.89
 3 < 201
 3 < Content-Length: 202
 3 < Content-Type: application/json; charset=utf-8
-3 < Date: Fri, 03 Feb 2023 21:23:28 GMT
-{"account_id":"2e661f8a-e9df-4e9f-800d-dc663683e47e","bank":"22","number":"22","agency":"2","balance":100,"created_at":"2023-02-03T18:23:28.003756-03:00","updated_at":"2023-02-03T18:23:28.003756-03:00"}
+3 < Date: Sat, 04 Feb 2023 15:41:33 GMT
+{"account_id":"11fc010d-7cb6-49f5-abef-c6ae075d78fd","bank":"22","number":"22","agency":"2","balance":100,"created_at":"2023-02-04T12:41:33.858891-03:00","updated_at":"2023-02-04T12:41:33.858891-03:00"}
 
-18:23:28.030 request:
+12:41:33.885 request:
 4 > POST http://localhost:8098/snapfi/transactions
 4 > Accept-Encoding: gzip,deflate
 4 > Connection: Keep-Alive
@@ -54,75 +54,73 @@
 4 > Content-Type: application/json; charset=UTF-8
 4 > Host: localhost:8098
 4 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
-{"transaction_type":"PIX_OUT","origin_account_id":"bb34c8d6-beca-4724-898a-199c93b88594","destination_account_id":"2e661f8a-e9df-4e9f-800d-dc663683e47e","value":10}
+{"transaction_type":"PIX_OUT","origin_account_id":"d7b76338-c7b4-4b20-b765-940cd4f58a40","destination_account_id":"11fc010d-7cb6-49f5-abef-c6ae075d78fd","value":10}
 
-18:23:28.042 response time in milliseconds: 10.69
+12:41:33.895 response time in milliseconds: 9.40
 4 < 201
 4 < Content-Length: 310
 4 < Content-Type: application/json; charset=utf-8
-4 < Date: Fri, 03 Feb 2023 21:23:28 GMT
-{"transaction_id":"80e90e0a-bd84-4615-8fe6-fe128ea25c0f","type":"PIX_OUT","origin_account_id":"bb34c8d6-beca-4724-898a-199c93b88594","destination_account_id":"2e661f8a-e9df-4e9f-800d-dc663683e47e","value":10,"created_at":"2023-02-03T18:23:28.034864152-03:00","updated_at":"2023-02-03T18:23:28.034864266-03:00"}
+4 < Date: Sat, 04 Feb 2023 15:41:33 GMT
+{"transaction_id":"30385ea1-a7cb-4a6a-a0fd-43620680f40d","type":"PIX_OUT","origin_account_id":"d7b76338-c7b4-4b20-b765-940cd4f58a40","destination_account_id":"11fc010d-7cb6-49f5-abef-c6ae075d78fd","value":10,"created_at":"2023-02-04T12:41:33.888534142-03:00","updated_at":"2023-02-04T12:41:33.888534245-03:00"}
 
-18:23:28.056 request:
-5 > GET http://localhost:8098/snapfi/transaction_status?transaction_id=80e90e0a-bd84-4615-8fe6-fe128ea25c0f
+12:41:33.906 request:
+5 > GET http://localhost:8098/snapfi/transaction_status?transaction_id=30385ea1-a7cb-4a6a-a0fd-43620680f40d
 5 > Accept-Encoding: gzip,deflate
 5 > Connection: Keep-Alive
 5 > Host: localhost:8098
 5 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
 
-18:23:28.059 response time in milliseconds: 2.11
+12:41:33.909 response time in milliseconds: 1.45
 5 < 200
 5 < Content-Length: 232
 5 < Content-Type: application/json; charset=utf-8
-5 < Date: Fri, 03 Feb 2023 21:23:28 GMT
-{"transaction_status_id":"03370d7c-b563-4f04-baa0-b9f87cd24cd4","status":"OPEN","transaction_id":"80e90e0a-bd84-4615-8fe6-fe128ea25c0f","created_at":"2023-02-03T18:23:28.035743-03:00","updated_at":"2023-02-03T18:23:28.035744-03:00"}
+5 < Date: Sat, 04 Feb 2023 15:41:33 GMT
+{"transaction_status_id":"18ae79fe-c898-4ba6-a141-88bfb310769f","status":"OPEN","transaction_id":"30385ea1-a7cb-4a6a-a0fd-43620680f40d","created_at":"2023-02-04T12:41:33.889314-03:00","updated_at":"2023-02-04T12:41:33.889315-03:00"}
 
-18:23:28.082 request:
-6 > GET http://localhost:8098/snapfi/balance_provisions?transaction_id=80e90e0a-bd84-4615-8fe6-fe128ea25c0f
+12:41:33.926 request:
+6 > GET http://localhost:8098/snapfi/balance_provisions?transaction_id=30385ea1-a7cb-4a6a-a0fd-43620680f40d
 6 > Accept-Encoding: gzip,deflate
 6 > Connection: Keep-Alive
 6 > Host: localhost:8098
 6 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
 
-18:23:28.085 response time in milliseconds: 2.00
+12:41:33.929 response time in milliseconds: 1.40
 6 < 200
-6 < Content-Length: 370
+6 < Content-Length: 372
 6 < Content-Type: application/json; charset=utf-8
-6 < Date: Fri, 03 Feb 2023 21:23:28 GMT
-[{"provision_id":"1c2a6e99-1805-47ba-ba75-ac74798ad4a6","value":10,"origin_account_id":"bb34c8d6-beca-4724-898a-199c93b88594","destination_account_id":"2e661f8a-e9df-4e9f-800d-dc663683e47e","type":"ADD","status":"OPEN","transaction_id":"80e90e0a-bd84-4615-8fe6-fe128ea25c0f","created_at":"2023-02-03T18:23:28.03848-03:00","updated_at":"2023-02-03T18:23:28.03848-03:00"}]
+6 < Date: Sat, 04 Feb 2023 15:41:33 GMT
+[{"provision_id":"3fc11e5e-101c-42ed-a726-95806cad16c8","value":10,"origin_account_id":"d7b76338-c7b4-4b20-b765-940cd4f58a40","destination_account_id":"11fc010d-7cb6-49f5-abef-c6ae075d78fd","type":"ADD","status":"OPEN","transaction_id":"30385ea1-a7cb-4a6a-a0fd-43620680f40d","created_at":"2023-02-04T12:41:33.892015-03:00","updated_at":"2023-02-04T12:41:33.892015-03:00"}]
 
-18:23:28.132 request:
-7 > GET http://localhost:8098/snapfi/account/bb34c8d6-beca-4724-898a-199c93b88594
+12:41:33.981 request:
+7 > GET http://localhost:8098/snapfi/account/d7b76338-c7b4-4b20-b765-940cd4f58a40
 7 > Accept-Encoding: gzip,deflate
 7 > Connection: Keep-Alive
 7 > Host: localhost:8098
 7 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
 
-18:23:28.134 response time in milliseconds: 1.59
+12:41:33.983 response time in milliseconds: 1.54
 7 < 200
 7 < Content-Length: 201
 7 < Content-Type: application/json; charset=utf-8
-7 < Date: Fri, 03 Feb 2023 21:23:28 GMT
-{"account_id":"bb34c8d6-beca-4724-898a-199c93b88594","bank":"11","number":"11","agency":"1","balance":90,"created_at":"2023-02-03T18:23:27.983238-03:00","updated_at":"2023-02-03T18:23:28.036661-03:00"}
+7 < Date: Sat, 04 Feb 2023 15:41:33 GMT
+{"account_id":"d7b76338-c7b4-4b20-b765-940cd4f58a40","bank":"11","number":"11","agency":"1","balance":90,"created_at":"2023-02-04T12:41:33.834076-03:00","updated_at":"2023-02-04T12:41:33.890215-03:00"}
 
-18:23:28.146 request:
+12:41:33.994 request:
 8 > GET http://localhost:8098/snapfi/account/12345
 8 > Accept-Encoding: gzip,deflate
 8 > Connection: Keep-Alive
 8 > Host: localhost:8098
 8 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
 
-18:23:28.149 response time in milliseconds: 2.26
+12:41:33.997 response time in milliseconds: 1.65
 8 < 200
 8 < Content-Length: 176
 8 < Content-Type: application/json; charset=utf-8
-8 < Date: Fri, 03 Feb 2023 21:23:28 GMT
-{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":10000039,"created_at":"2023-02-03T16:39:31.078441-03:00","updated_at":"2023-02-03T18:23:28.037686-03:00"}
+8 < Date: Sat, 04 Feb 2023 15:41:33 GMT
+{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":10000019,"created_at":"2023-02-04T12:41:06.778477-03:00","updated_at":"2023-02-04T12:41:33.891066-03:00"}
 
-
-
-17:56:43.941 request:
-1 > POST http://localhost:8098/snapfi/transaction/9fd529eb-9d07-435c-b65b-d1747460b6ae/complete
+12:41:34.015 request:
+1 > POST http://localhost:8098/snapfi/transaction/30385ea1-a7cb-4a6a-a0fd-43620680f40d/complete
 1 > Accept-Encoding: gzip,deflate
 1 > Connection: Keep-Alive
 1 > Content-Length: 2
@@ -131,64 +129,64 @@
 1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
 {}
 
-17:56:43.951 response time in milliseconds: 9.28
+12:41:34.027 response time in milliseconds: 11.02
 1 < 202
 1 < Content-Length: 0
-1 < Date: Fri, 03 Feb 2023 20:56:43 GMT
+1 < Date: Sat, 04 Feb 2023 15:41:34 GMT
 
-17:56:43.960 request:
-2 > GET http://localhost:8098/snapfi/transaction_status?transaction_id=9fd529eb-9d07-435c-b65b-d1747460b6ae
+12:41:34.034 request:
+2 > GET http://localhost:8098/snapfi/transaction_status?transaction_id=30385ea1-a7cb-4a6a-a0fd-43620680f40d
 2 > Accept-Encoding: gzip,deflate
 2 > Connection: Keep-Alive
 2 > Host: localhost:8098
 2 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
 
-17:56:43.962 response time in milliseconds: 1.62
+12:41:34.037 response time in milliseconds: 1.73
 2 < 200
 2 < Content-Length: 234
 2 < Content-Type: application/json; charset=utf-8
-2 < Date: Fri, 03 Feb 2023 20:56:43 GMT
-{"transaction_status_id":"8afdf7cb-8266-44ed-ba79-4c5c97ddc92b","status":"BOOKED","transaction_id":"9fd529eb-9d07-435c-b65b-d1747460b6ae","created_at":"2023-02-03T17:56:43.799524-03:00","updated_at":"2023-02-03T17:56:43.948055-03:00"}
+2 < Date: Sat, 04 Feb 2023 15:41:34 GMT
+{"transaction_status_id":"18ae79fe-c898-4ba6-a141-88bfb310769f","status":"BOOKED","transaction_id":"30385ea1-a7cb-4a6a-a0fd-43620680f40d","created_at":"2023-02-04T12:41:33.889314-03:00","updated_at":"2023-02-04T12:41:34.023005-03:00"}
 
-17:56:43.977 request:
-3 > GET http://localhost:8098/snapfi/balance_provisions?transaction_id=9fd529eb-9d07-435c-b65b-d1747460b6ae
+12:41:34.051 request:
+3 > GET http://localhost:8098/snapfi/balance_provisions?transaction_id=30385ea1-a7cb-4a6a-a0fd-43620680f40d
 3 > Accept-Encoding: gzip,deflate
 3 > Connection: Keep-Alive
 3 > Host: localhost:8098
 3 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
 
-17:56:43.979 response time in milliseconds: 1.65
+12:41:34.053 response time in milliseconds: 1.68
 3 < 200
 3 < Content-Length: 374
 3 < Content-Type: application/json; charset=utf-8
-3 < Date: Fri, 03 Feb 2023 20:56:43 GMT
-[{"provision_id":"ad7822d2-ec7f-4303-a9a0-a1932fc211bc","value":10,"origin_account_id":"f9a5182b-01bd-42bd-8ee4-f784724bf9c5","destination_account_id":"dd464865-2d6f-48c1-92eb-353a51d8d186","type":"ADD","status":"CLOSED","transaction_id":"9fd529eb-9d07-435c-b65b-d1747460b6ae","created_at":"2023-02-03T17:56:43.802765-03:00","updated_at":"2023-02-03T17:56:43.947412-03:00"}]
+3 < Date: Sat, 04 Feb 2023 15:41:34 GMT
+[{"provision_id":"3fc11e5e-101c-42ed-a726-95806cad16c8","value":10,"origin_account_id":"d7b76338-c7b4-4b20-b765-940cd4f58a40","destination_account_id":"11fc010d-7cb6-49f5-abef-c6ae075d78fd","type":"ADD","status":"CLOSED","transaction_id":"30385ea1-a7cb-4a6a-a0fd-43620680f40d","created_at":"2023-02-04T12:41:33.892015-03:00","updated_at":"2023-02-04T12:41:34.022111-03:00"}]
 
-17:56:44.001 request:
-4 > GET http://localhost:8098/snapfi/account/dd464865-2d6f-48c1-92eb-353a51d8d186
+12:41:34.077 request:
+4 > GET http://localhost:8098/snapfi/account/11fc010d-7cb6-49f5-abef-c6ae075d78fd
 4 > Accept-Encoding: gzip,deflate
 4 > Connection: Keep-Alive
 4 > Host: localhost:8098
 4 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
 
-17:56:44.004 response time in milliseconds: 1.79
+12:41:34.079 response time in milliseconds: 1.83
 4 < 200
 4 < Content-Length: 202
 4 < Content-Type: application/json; charset=utf-8
-4 < Date: Fri, 03 Feb 2023 20:56:44 GMT
-{"account_id":"dd464865-2d6f-48c1-92eb-353a51d8d186","bank":"22","number":"22","agency":"2","balance":110,"created_at":"2023-02-03T17:56:43.770323-03:00","updated_at":"2023-02-03T17:56:43.946498-03:00"}
+4 < Date: Sat, 04 Feb 2023 15:41:34 GMT
+{"account_id":"11fc010d-7cb6-49f5-abef-c6ae075d78fd","bank":"22","number":"22","agency":"2","balance":110,"created_at":"2023-02-04T12:41:33.858891-03:00","updated_at":"2023-02-04T12:41:34.020854-03:00"}
 
-17:56:44.017 request:
+12:41:34.091 request:
 5 > GET http://localhost:8098/snapfi/account/12345
 5 > Accept-Encoding: gzip,deflate
 5 > Connection: Keep-Alive
 5 > Host: localhost:8098
 5 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.15)
 
-17:56:44.020 response time in milliseconds: 2.04
+12:41:34.093 response time in milliseconds: 1.59
 5 < 200
 5 < Content-Length: 176
 5 < Content-Type: application/json; charset=utf-8
-5 < Date: Fri, 03 Feb 2023 20:56:44 GMT
-{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":10000029,"created_at":"2023-02-03T16:39:31.078441-03:00","updated_at":"2023-02-03T17:56:43.945698-03:00"}
+5 < Date: Sat, 04 Feb 2023 15:41:34 GMT
+{"account_id":"12345","bank":"10","number":"10","agency":"9","balance":10000009,"created_at":"2023-02-04T12:41:06.778477-03:00","updated_at":"2023-02-04T12:41:34.019629-03:00"}
 

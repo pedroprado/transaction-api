@@ -15,7 +15,7 @@ Feature: Complete Transaction
         # And the balance should be subtracted from the intermediary account
 
         #  starting from cenario where we create a transaction (produces a OPEN transaction)
-        * call read('classpath:features/create_transaction.feature@CreateTransaction')
+        * call read('classpath:cases/create_transaction.feature@CreateTransaction')
 
         Given url apiURL
         And path "/transaction/" + transactionID + "/complete"

@@ -12,8 +12,8 @@ type TransactionService struct {
 	mock.Mock
 }
 
-// CompensateTransaction provides a mock function with given fields: transactionID
-func (_m *TransactionService) CompensateTransaction(transactionID string) error {
+// Compensate provides a mock function with given fields: transactionID
+func (_m *TransactionService) Compensate(transactionID string) error {
 	ret := _m.Called(transactionID)
 
 	var r0 error
@@ -26,8 +26,8 @@ func (_m *TransactionService) CompensateTransaction(transactionID string) error 
 	return r0
 }
 
-// CompleteTransaction provides a mock function with given fields: transactionID
-func (_m *TransactionService) CompleteTransaction(transactionID string) error {
+// Complete provides a mock function with given fields: transactionID
+func (_m *TransactionService) Complete(transactionID string) error {
 	ret := _m.Called(transactionID)
 
 	var r0 error
@@ -40,8 +40,8 @@ func (_m *TransactionService) CompleteTransaction(transactionID string) error {
 	return r0
 }
 
-// CreateTransaction provides a mock function with given fields: transaction
-func (_m *TransactionService) CreateTransaction(transaction entity.Transaction) (*entity.Transaction, error) {
+// Create provides a mock function with given fields: transaction
+func (_m *TransactionService) Create(transaction entity.Transaction) (*entity.Transaction, error) {
 	ret := _m.Called(transaction)
 
 	var r0 *entity.Transaction

@@ -38,7 +38,7 @@ func (ref *transactionApi) CreateTransaction(c *gin.Context) {
 		return
 	}
 
-	created, err := ref.transactionService.CreateTransaction(request.ToDomain())
+	created, err := ref.transactionService.Create(request.ToDomain())
 	if err != nil {
 		rest.NewErrorHandler(errors.WithStack(err)).Handle(c)
 		return
@@ -64,7 +64,7 @@ func (ref *transactionApi) CompleteTransaction(c *gin.Context) {
 		return
 	}
 
-	err := ref.transactionService.CompleteTransaction(request.TransactionID)
+	err := ref.transactionService.Complete(request.TransactionID)
 	if err != nil {
 		rest.NewErrorHandler(errors.WithStack(err)).Handle(c)
 		return
@@ -90,7 +90,7 @@ func (ref *transactionApi) CompensateTransaction(c *gin.Context) {
 		return
 	}
 
-	err := ref.transactionService.CompensateTransaction(request.TransactionID)
+	err := ref.transactionService.Compensate(request.TransactionID)
 	if err != nil {
 		rest.NewErrorHandler(errors.WithStack(err)).Handle(c)
 		return

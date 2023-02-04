@@ -7,6 +7,9 @@ import (
 	"pedroprado.transaction.api/src/core/useCases/account"
 	"pedroprado.transaction.api/src/core/useCases/balanceProvision"
 	"pedroprado.transaction.api/src/core/useCases/transaction"
+	"pedroprado.transaction.api/src/core/useCases/transaction/compensate"
+	"pedroprado.transaction.api/src/core/useCases/transaction/complete"
+	"pedroprado.transaction.api/src/core/useCases/transaction/create"
 	"pedroprado.transaction.api/src/core/useCases/transactionStatus"
 	"pedroprado.transaction.api/src/infra"
 	rest "pedroprado.transaction.api/src/presentation"
@@ -37,6 +40,7 @@ const (
 )
 
 func main() {
+	setLoggerFormatter()
 	db := getDb()
 	errHandler := errorHandler.NewPostgresErrorHandler()
 
@@ -46,8 +50,14 @@ func main() {
 	balanceProvisionRepository := balanceProvisionRepo.NewBalanceProvisionRepository(db, errHandler)
 
 	accountService := account.NewAccountService(accountRepository)
-	transactionService := transaction.NewTransactionService(transactionRepository,
+	createTransactionService := create.NewCreateTransactionService(transactionRepository,
 		transactionStatusRepository, accountRepository, balanceProvisionRepository, db)
+	completeTransactionService := complete.NewCompleteTransactionService(transactionRepository,
+		transactionStatusRepository, accountRepository, balanceProvisionRepository, db)
+	compensateTransactionService := compensate.NewCompensateTransactionService(transactionRepository,
+		transactionStatusRepository, accountRepository, balanceProvisionRepository, db)
+	transactionService := transaction.NewTransactionService(transactionRepository,
+		createTransactionService, completeTransactionService, compensateTransactionService)
 	balanceProvisionService := balanceProvision.NewBalanceProvisionService(balanceProvisionRepository)
 	transactionStatusService := transactionStatus.NewTransactionStatusService(transactionStatusRepository)
 

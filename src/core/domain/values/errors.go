@@ -70,3 +70,9 @@ func NewErrorValidation(message string) error {
 func (ref *ErrorValidation) Error() string {
 	return ref.s
 }
+
+var (
+	ErrorDestinationAccountNotFound  = NewErrorValidation("destination account not found")
+	ErrorOriginAccountNotFound       = NewErrorValidation("origin account not found")
+	ErrorIntermediaryAccountNotFound = NewErrorValidation("intermediary account not found")
+)
