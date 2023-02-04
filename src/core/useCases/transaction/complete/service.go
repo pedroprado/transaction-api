@@ -48,8 +48,7 @@ func completeAddTransaction(
 	balanceProvisionRepoTx _interfaces.BalanceProvisionRepository,
 	accountRepoTx _interfaces.AccountRepository,
 ) error {
-	// TODO: dar get e lock aqui também, para evitar multiplas açoes de fechamento de transacao concorrentes
-	transaction, err := transactionRepoTx.Get(transactionID)
+	transaction, err := transactionRepoTx.GetLock(transactionID)
 	if err != nil {
 		return err
 	}

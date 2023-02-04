@@ -5,6 +5,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
+	"gorm.io/gorm/clause"
 	"pedroprado.transaction.api/src/core/_interfaces"
 	"pedroprado.transaction.api/src/core/domain/entity"
 	"pedroprado.transaction.api/src/core/domain/values"
@@ -32,6 +33,21 @@ func (ref *transactionRepository) Get(transactionID string) (*entity.Transaction
 	var record model.Transaction
 
 	result := ref.db.Find(&record, "transaction_id = ?", transactionID)
+	if result.Error != nil {
+		return nil, errors.WithStack(result.Error)
+	}
+
+	if result.RowsAffected == 0 {
+		return nil, nil
+	}
+
+	return record.ToDomain(), nil
+}
+
+func (ref *transactionRepository) GetLock(transactionID string) (*entity.Transaction, error) {
+	var record model.Transaction
+
+	result := ref.db.Clauses(clause.Locking{Strength: "UPDATE"}).Find(&record, "transaction_id = ?", transactionID)
 	if result.Error != nil {
 		return nil, errors.WithStack(result.Error)
 	}

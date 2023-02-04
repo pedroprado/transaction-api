@@ -26,6 +26,7 @@ type CompensateTransactionService interface {
 
 type TransactionRepository interface {
 	Get(transactionID string) (*entity.Transaction, error)
+	GetLock(transactionID string) (*entity.Transaction, error)
 	Create(transaction entity.Transaction) (*entity.Transaction, error)
 	WithTransaction(tx *gorm.DB) TransactionRepository
 }

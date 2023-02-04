@@ -41,7 +41,7 @@ func TestTransactionService_CompleteAddTransaction(t *testing.T) {
 	transactionStatusUpdated := *transactionStatusOpen
 	transactionStatusUpdated.Status = values.TransactionStatusBooked
 
-	transactionRepoTx.On("Get", transactionID).Return(transaction, nil)
+	transactionRepoTx.On("GetLock", transactionID).Return(transaction, nil)
 	transactionStatusRepoTx.On("FindByTransactionID", transactionID).Return(transactionStatusOpen, nil)
 	balanceProvisionRepoTx.On("FindByTransactionID", transactionID).Return(balanceProvisions, nil)
 	accountRepoTx.On("GetLock", values.IntermediaryAccountID).Return(intermediaryAccount, nil)
@@ -66,7 +66,7 @@ func TestTransactionService_CompleteAddTransaction_ShouldNotCompleteWhenTransact
 
 	var transaction *entity.Transaction
 
-	transactionRepoTx.On("Get", transactionID).Return(transaction, nil)
+	transactionRepoTx.On("GetLock", transactionID).Return(transaction, nil)
 
 	err := completeAddTransaction(transactionID, transactionRepoTx, transactionStatusRepoTx, balanceProvisionRepoTx, accountRepoTx)
 
@@ -83,7 +83,7 @@ func TestTransactionService_CompleteAddTransaction_ShouldNotCompleteWhenTransact
 	transaction := &entity.Transaction{}
 	var transactionStatusOpen *entity.TransactionStatus
 
-	transactionRepoTx.On("Get", transactionID).Return(transaction, nil)
+	transactionRepoTx.On("GetLock", transactionID).Return(transaction, nil)
 	transactionStatusRepoTx.On("FindByTransactionID", transactionID).Return(transactionStatusOpen, nil)
 
 	err := completeAddTransaction(transactionID, transactionRepoTx, transactionStatusRepoTx, balanceProvisionRepoTx, accountRepoTx)
@@ -103,7 +103,7 @@ func TestTransactionService_CompleteAddTransaction_ShouldNotCompleteWhenTransact
 		Status: values.TransactionStatusBooked,
 	}
 
-	transactionRepoTx.On("Get", transactionID).Return(transaction, nil)
+	transactionRepoTx.On("GetLock", transactionID).Return(transaction, nil)
 	transactionStatusRepoTx.On("FindByTransactionID", transactionID).Return(transactionStatusOpen, nil)
 
 	err := completeAddTransaction(transactionID, transactionRepoTx, transactionStatusRepoTx, balanceProvisionRepoTx, accountRepoTx)
@@ -124,7 +124,7 @@ func TestTransactionService_CompleteAddTransaction_ShouldNotCompleteWhenNotBalan
 	}
 	balanceProvisions := entity.BalanceProvisions{}
 
-	transactionRepoTx.On("Get", transactionID).Return(transaction, nil)
+	transactionRepoTx.On("GetLock", transactionID).Return(transaction, nil)
 	transactionStatusRepoTx.On("FindByTransactionID", transactionID).Return(transactionStatusOpen, nil)
 	balanceProvisionRepoTx.On("FindByTransactionID", transactionID).Return(balanceProvisions, nil)
 

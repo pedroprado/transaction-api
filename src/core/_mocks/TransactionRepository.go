@@ -62,6 +62,29 @@ func (_m *TransactionRepository) Get(transactionID string) (*entity.Transaction,
 	return r0, r1
 }
 
+// GetLock provides a mock function with given fields: transactionID
+func (_m *TransactionRepository) GetLock(transactionID string) (*entity.Transaction, error) {
+	ret := _m.Called(transactionID)
+
+	var r0 *entity.Transaction
+	if rf, ok := ret.Get(0).(func(string) *entity.Transaction); ok {
+		r0 = rf(transactionID)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*entity.Transaction)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(string) error); ok {
+		r1 = rf(transactionID)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
 // WithTransaction provides a mock function with given fields: tx
 func (_m *TransactionRepository) WithTransaction(tx *gorm.DB) _interfaces.TransactionRepository {
 	ret := _m.Called(tx)
