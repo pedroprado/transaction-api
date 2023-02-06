@@ -83,7 +83,7 @@ func (ref *transactionApi) CompleteTransaction(c *gin.Context) {
 // @Success 202
 // @Failure 400 {object} rest.ErrorResponse
 // @Failure 500 {object} rest.ErrorResponse
-// @Router /transaction/{transaction_id}/complete [post]
+// @Router /transaction/{transaction_id}/compensate [post]
 func (ref *transactionApi) CompensateTransaction(c *gin.Context) {
 	var request CompensateTransactionRequest
 	if err := c.ShouldBindUri(&request); err != nil {

@@ -88,7 +88,7 @@ func (ref *accountApi) Create(c *gin.Context) {
 // @Success 204
 // @Failure 400 {object} rest.ErrorResponse
 // @Failure 500 {object} rest.ErrorResponse
-// @Router /account [post]
+// @Router /account [patch]
 func (ref *accountApi) Patch(c *gin.Context) {
 	var request PatchAccountRequest
 	if err := c.ShouldBindJSON(&request); err != nil {

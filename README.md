@@ -80,16 +80,27 @@ Second, run the application (using the .env file for environment variables):
    * Verify that a new balanceProvision was of type VOID in OPEN status was created, using the api (GET /balance_provisions&transaction_id={transaction_id})
 
 4. Compensate a Failed Transaction
+   * Recreate Scenario 3
+   * Add funds to intermediary account using patch api (PATCH /account)
+   * Compensate the transaction using the complete transaction api (POST /transaction/{transaction_id}/compensate)
+   * Verify that the transaction status is still FAILED using the api (GET /transaction_status&transaction_id={transaction_id})
+   * Verify that the balanceProvision was of type VOID is set to CLOSED the api (GET /balance_provisions&transaction_id={transaction_id})
+   * Verify that the origin account has its original balance using the api (GET /account/{account_id})
 
-#### Testing scenarios manually using Karate
+#### Testing scenarios manually using Karate (and VS Code)
+   * For running the automated tests with the Karate Framework, you need to install Java JRE
+   * Open the test/integration directory in Visual Studio Code
+   * Install Karate Runner Extension (Kirk Slota)
+   * Click on Files -> Preferences -> Settings and select "Workspace" Tab
+   * In the Search input type "karate"
+   * Scroll down and find Karate Runner -> Karate Jar: **Command Line Args** input and paste the following: *java -cp ../karate/karate.jar com.intuit.karate.Main*
+   * Select a **.feature** file in **cases** folder and run a **Scenario** pressing **Karate Debug** button.
+   * You may need to select the runner if is the first time running a karate .feature file (select Karate Debug for the VS Code to create a settings file)
 
+![alt-text](/images/karateDebug.png)
 
 #### Testing scenarios automated
-
-You can run all the tests scenarios described automatically.
-
-In the root directory, use run the script:
-
-**(sudo) sh integration_test.sh**
+   * You can run all the tests scenarios described automatically. 
+   * In the root directory, use run the script: ***(sudo) sh integration_test.sh***
 
 

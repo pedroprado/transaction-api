@@ -47,7 +47,8 @@ func (ref *completeTransactionTxService) Complete(
 
 	balanceProvisionAddOpen := balanceProvisions.FindProvision(values.ProvisionTypeAdd, values.ProvisionStatusOpen)
 	if balanceProvisionAddOpen == nil {
-		logrus.Warnf("no provision found to complete")
+		logrus.Errorf("no provision found to complete for transaction %s", transactionID)
+
 		return values.NewErrorValidation("no provision found to complete")
 	}
 

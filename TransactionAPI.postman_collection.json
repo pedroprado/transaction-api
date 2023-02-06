@@ -57,6 +57,35 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Patch Account",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_id\": \"12345\",\n    \"balance\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8098/snapfi/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"snapfi",
+								"account"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},

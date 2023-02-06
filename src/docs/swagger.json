@@ -14,12 +14,61 @@
                     "Account"
                 ],
                 "summary": "Create an Account",
+                "parameters": [
+                    {
+                        "description": "Body",
+                        "name": "account",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/accountApi.CreateAccountRequest"
+                        }
+                    }
+                ],
                 "responses": {
                     "201": {
                         "description": "Created",
                         "schema": {
                             "$ref": "#/definitions/responses.Account"
                         }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/rest.ErrorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/rest.ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "description": "Patch an Account",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Account"
+                ],
+                "summary": "Patch an Account",
+                "parameters": [
+                    {
+                        "description": "Body",
+                        "name": "account",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/accountApi.PatchAccountRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
                     },
                     "400": {
                         "description": "Bad Request",
@@ -213,6 +262,17 @@
                     "Transaction"
                 ],
                 "summary": "Create a Transaction",
+                "parameters": [
+                    {
+                        "description": "Body",
+                        "name": "transaction",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/transactionApi.CreateTransactionRequest"
+                        }
+                    }
+                ],
                 "responses": {
                     "201": {
                         "description": "Created",
@@ -237,6 +297,38 @@
         }
     },
     "definitions": {
+        "accountApi.CreateAccountRequest": {
+            "type": "object",
+            "properties": {
+                "agency": {
+                    "type": "string"
+                },
+                "balance": {
+                    "type": "number"
+                },
+                "bank": {
+                    "type": "string"
+                },
+                "number": {
+                    "type": "string"
+                }
+            }
+        },
+        "accountApi.PatchAccountRequest": {
+            "type": "object",
+            "required": [
+                "account_id",
+                "balance"
+            ],
+            "properties": {
+                "account_id": {
+                    "type": "string"
+                },
+                "balance": {
+                    "type": "number"
+                }
+            }
+        },
         "responses.Account": {
             "type": "object",
             "properties": {
@@ -346,6 +438,29 @@
             "properties": {
                 "error": {
                     "type": "string"
+                }
+            }
+        },
+        "transactionApi.CreateTransactionRequest": {
+            "type": "object",
+            "required": [
+                "destination_account_id",
+                "origin_account_id",
+                "transaction_type",
+                "value"
+            ],
+            "properties": {
+                "destination_account_id": {
+                    "type": "string"
+                },
+                "origin_account_id": {
+                    "type": "string"
+                },
+                "transaction_type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "number"
                 }
             }
         }

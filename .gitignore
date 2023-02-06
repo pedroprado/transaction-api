@@ -8,3 +8,4 @@
 .vscode
 target
 /fmtcoverage.html
+tests/integration/target

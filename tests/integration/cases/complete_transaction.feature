@@ -53,6 +53,7 @@ Feature: Complete Transaction
         Then assert responseStatus == 200
         And assert response.balance ==  intermediaryAccountBalanceBefore
 
+    @GenerateCompensation
     Scenario: should generate compensation when failed completing transaction when intermediary account has no funds
 
         * call read('classpath:cases/create_transaction.feature@CreateTransaction')

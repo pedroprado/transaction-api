@@ -1,4 +1,25 @@
 definitions:
+  accountApi.CreateAccountRequest:
+    properties:
+      agency:
+        type: string
+      balance:
+        type: number
+      bank:
+        type: string
+      number:
+        type: string
+    type: object
+  accountApi.PatchAccountRequest:
+    properties:
+      account_id:
+        type: string
+      balance:
+        type: number
+    required:
+    - account_id
+    - balance
+    type: object
   responses.Account:
     properties:
       account_id:
@@ -72,12 +93,60 @@ definitions:
       error:
         type: string
     type: object
+  transactionApi.CreateTransactionRequest:
+    properties:
+      destination_account_id:
+        type: string
+      origin_account_id:
+        type: string
+      transaction_type:
+        type: string
+      value:
+        type: number
+    required:
+    - destination_account_id
+    - origin_account_id
+    - transaction_type
+    - value
+    type: object
 info:
   contact: {}
 paths:
   /account:
+    patch:
+      description: Patch an Account
+      parameters:
+      - description: Body
+        in: body
+        name: account
+        required: true
+        schema:
+          $ref: '#/definitions/accountApi.PatchAccountRequest'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/rest.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/rest.ErrorResponse'
+      summary: Patch an Account
+      tags:
+      - Account
     post:
       description: Create an Account
+      parameters:
+      - description: Body
+        in: body
+        name: account
+        required: true
+        schema:
+          $ref: '#/definitions/accountApi.CreateAccountRequest'
       produces:
       - application/json
       responses:
@@ -209,6 +278,13 @@ paths:
   /transactions:
     post:
       description: Create a Transaction
+      parameters:
+      - description: Body
+        in: body
+        name: transaction
+        required: true
+        schema:
+          $ref: '#/definitions/transactionApi.CreateTransactionRequest'
       produces:
       - application/json
       responses:
