@@ -7,5 +7,4 @@ then
   export PUBSUB_HOST=pubsub
 fi
 
-
-/karate/wait-for -t 30 ${PUBSUB_HOST}:8682 -- java -Dlogback.configurationFile=log-config.xml -cp karate.jar:./cases:KarateUtils.jar com.intuit.karate.Main "$@"
+java -Dlogback.configurationFile=log-config.xml -cp karate.jar:./cases:KarateUtils.jar com.intuit.karate.Main "$@"

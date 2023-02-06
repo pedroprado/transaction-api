@@ -8,7 +8,7 @@ rm ../karate/karate-config.js
 
 docker build -t transaction-api:local ../../.
 if [ $? -ne 0 ]; then
-    echo "Error building Temis Registration"
+    echo "Error building Transaction API"
     exit 1
 fi
 
